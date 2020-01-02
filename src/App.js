@@ -2,6 +2,10 @@ import React, { useState, useEffect, useCallback } from "react";
 import { createMuiTheme, makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { Paper, Toolbar } from "@material-ui/core";
+import { I18nProvider } from "@lingui/react";
+import { Trans } from "@lingui/macro";
+import { langCatalogs } from "./locales";
+
 import { DEFAULT_SETUP, DEFAULT_THEME, PALETTE_TYPES } from "./consts";
 import { useEditableTheme } from "./hooks";
 import TopMenu from "./Components/TopMenu";
@@ -19,30 +23,43 @@ function App() {
 
   const [appSetup, setAppSetup] = useState(DEFAULT_SETUP);
   const { theme, overrideThemePalette } = useEditableTheme(DEFAULT_THEME);
-  const { isDarkMode } = appSetup;
+  const { isDarkMode, lang } = appSetup;
 
   const onToggleDarkMode = useCallback(
     isDarkMode => {
-      const toggledDarkMode = !isDarkMode;
       overrideThemePalette({
-        type: toggledDarkMode ? PALETTE_TYPES.dark : PALETTE_TYPES.light
+        type: isDarkMode ? PALETTE_TYPES.dark : PALETTE_TYPES.light
       });
       setAppSetup({
         ...appSetup,
-        isDarkMode: toggledDarkMode
+        isDarkMode: isDarkMode
       });
     },
     [appSetup, overrideThemePalette]
   );
 
+  const onChageLanguage = useCallback(
+    lang => {
+      setAppSetup({
+        ...appSetup,
+        lang: lang
+      });
+    },
+    [appSetup]
+  );
+
   return (
-    <ThemeProvider theme={theme}>
-      <Paper className={classes.Paper} square={true}>
-        <TopMenu {...{ onToggleDarkMode, isDarkMode }} />
-        <Toolbar />
-        Content goes here
-      </Paper>
-    </ThemeProvider>
+    <I18nProvider language={lang} catalogs={langCatalogs}>
+      <ThemeProvider theme={theme}>
+        <Paper className={classes.Paper} square={true}>
+          <TopMenu
+            {...{ onToggleDarkMode, onChageLanguage, isDarkMode, lang }}
+          />
+          <Toolbar />
+          <Trans>Content goes here</Trans>
+        </Paper>
+      </ThemeProvider>
+    </I18nProvider>
   );
 }
 

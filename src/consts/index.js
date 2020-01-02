@@ -5,6 +5,16 @@ export const PALETTE_TYPES = {
   dark: "dark"
 };
 
+export const LANGUAGES = {
+  en: "en",
+  pl: "pl"
+};
+
+export const LANG_FLAG_CODES = {
+  en: "GB",
+  pl: "PL"
+};
+
 export const DEFAULT_THEME = {
   palette: {
     primary: {
@@ -16,5 +26,6 @@ export const DEFAULT_THEME = {
 };
 
 export const DEFAULT_SETUP = {
-  isDarkMode: false
+  isDarkMode: false,
+  lang: LANGUAGES.en
 };
