@@ -1,7 +1,9 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
-import { DarkModeIcon, LightModeIcon } from "../../assets/icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLightbulb as offDarkModeIcon } from "@fortawesome/free-solid-svg-icons";
+import { faLightbulb as onDarkModeIcon } from "@fortawesome/free-regular-svg-icons";
 import { langCatalogs } from "../../locales";
 import { LANG_FLAG_CODES } from "../../consts";
 import { FlagIcon } from "react-flag-kit";
@@ -60,9 +62,9 @@ const TopMenu = ({ onToggleDarkMode, isDarkMode, lang, onChageLanguage }) => {
         onClick={() => onToggleDarkMode(!isDarkMode)}
       >
         {isDarkMode ? (
-          <LightModeIcon className={classes.icon} />
+          <FontAwesomeIcon icon={offDarkModeIcon} className={classes.icon} />
         ) : (
-          <DarkModeIcon className={classes.icon} />
+          <FontAwesomeIcon icon={onDarkModeIcon} className={classes.icon} />
         )}
       </IconButton>
     </Tooltip>
