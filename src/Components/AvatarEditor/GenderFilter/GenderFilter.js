@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     margin: "8px 0"
   },
   ToogleButton: {
-    color: "white",
+    color: theme.palette.primary.contrastText,
     backgroundColor: theme.palette.primary.main,
     border: "none",
     minWidth: 48,
@@ -34,9 +34,14 @@ const useStyles = makeStyles(theme => ({
     }
   },
   ToogleSelected: {
+    color: `${theme.palette.primary.contrastText} !important`,
     backgroundColor: `${theme.palette.primary.dark} !important`,
+    filter: "brightness(0.75)",
     minWidth: 48,
-    height: 48
+    height: 48,
+    "&:hover": {
+      filter: "brightness(1.1)"
+    }
   }
 }));
 

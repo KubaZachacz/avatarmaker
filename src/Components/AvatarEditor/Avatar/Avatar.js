@@ -3,8 +3,8 @@ import avatarSrc from "../../../assets/avatar/avatars.json";
 import ReactHtmlParser from "react-html-parser";
 import { css } from "glamor";
 import clsx from "clsx";
-import { PARTS, PARTS_LENGTHS, PART_STYLE_MAP, DEFAULT_COLORS } from "./consts";
-import { FaceGradient, GlassesGradient } from "./gradients";
+import { PARTS, PART_STYLE_MAP } from "./consts";
+import { FaceGradient, GlassesGradient, SunglassesGradient } from "./gradients";
 
 import "../../../assets/avatar/avatars.css";
 
@@ -34,6 +34,7 @@ const Avatar = ({ className, avatarElements, avatarStyle }) => {
     >
       <FaceGradient />
       <GlassesGradient />
+      <SunglassesGradient />
       {avatar}
     </svg>
   );

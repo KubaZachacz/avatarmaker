@@ -2,6 +2,8 @@ import avatarSrc from "../../../assets/avatar/avatars.json";
 
 export const PARTS = Object.keys(avatarSrc);
 
+export const GENDERS = ["male", "female"];
+
 export const PARTS_LENGTHS = {};
 for (let part of PARTS) {
   PARTS_LENGTHS[part] = Object.keys(avatarSrc[part]).length;

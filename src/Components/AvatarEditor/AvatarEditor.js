@@ -12,6 +12,7 @@ import ColorLens from "@material-ui/icons/ColorLens";
 import {
   Avatar,
   PARTS,
+  GENDERS,
   PARTS_LENGTHS,
   PART_STYLE_MAP,
   DEFAULT_COLORS
@@ -23,7 +24,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDice } from "@fortawesome/free-solid-svg-icons";
 import avatarConfig from "../../assets/avatar/avatar-config.json";
 
+const filterByGender = () => {
+  const genderOptions = ["all", ...GENDERS];
+  const output = {};
+  for (let gender of genderOptions) {
+    output[gender] = {};
+    for (let part of PARTS) {
+      output[gender][part] = [];
+    }
+  }
+  for (let part of PARTS) {
+    if (part !== "hair_back") {
+      const elements = Object.keys(avatarConfig[part]);
+      for (let element of elements) {
+        output["all"][part].push(element);
+        for (let gender of GENDERS) {
+          if (avatarConfig[part][element][gender]) {
+            output[gender][part].push(element);
+          }
+        }
+      }
+    }
+  }
+  return output;
+};
+
 const REVERSED_PARTS = [...PARTS].reverse();
+const avatarElementsByGender = filterByGender();
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -124,7 +151,7 @@ const AvatarEditor = props => {
   );
 
   const { male: maleFilter, female: femaleFilter } = useSelector(
-    state => state.settings.genderFilter
+    state => state.avatar.genderFilter
   );
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -152,9 +179,10 @@ const AvatarEditor = props => {
   };
 
   const randomHandler = () => {
-    let source = avatarConfig["all"];
-    if (!maleFilter && femaleFilter) source = avatarConfig["male"];
-    else if (maleFilter && !femaleFilter) source = avatarConfig["female"];
+    let source = avatarElementsByGender["all"];
+    if (!maleFilter && femaleFilter) source = avatarElementsByGender["male"];
+    else if (maleFilter && !femaleFilter)
+      source = avatarElementsByGender["female"];
     const { elements, style } = randomSrcAvatar(source);
     dispatch(setAvatarElements(elements));
     dispatch(setAvatarStyle(style));

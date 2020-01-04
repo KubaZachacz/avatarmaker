@@ -11,8 +11,8 @@ const avatarSlice = createSlice({
   initialState: {
     ...{ elements, style },
     genderFilter: {
-      male: true,
-      female: true
+      male: false,
+      female: false
     },
     ...(persistedState && persistedState.avatar)
   },
@@ -40,7 +40,7 @@ export default avatarSlice.reducer;
 export const toggleGenderFilter = payload => (dispatch, getState) => {
   const {
     genderFilter: { male, female }
-  } = getState().settings;
+  } = getState().avatar;
   let gender = payload;
   console.log(gender, male, female);
   dispatch(toggleGenderFilterState(gender));
