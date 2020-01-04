@@ -9,6 +9,7 @@ import { langCatalogs } from "./locales";
 import { DEFAULT_SETUP, DEFAULT_THEME, PALETTE_TYPES } from "./consts";
 import { useEditableTheme } from "./hooks";
 import TopMenu from "./Components/TopMenu";
+import AvatarEditor from "./Components/AvatarEditor";
 import "./App.css";
 
 const useStyles = makeStyles(theme => ({
@@ -56,7 +57,7 @@ function App() {
             {...{ onToggleDarkMode, onChageLanguage, isDarkMode, lang }}
           />
           <Toolbar />
-          <Trans>Content goes here</Trans>
+          <AvatarEditor />
         </Paper>
       </ThemeProvider>
     </I18nProvider>

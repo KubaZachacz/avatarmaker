@@ -4,10 +4,12 @@ import { randomAvatar } from "../../Components/AvatarEditor";
 
 const persistedState = loadState(); // try to load state from local storage
 
+const { elements, style } = randomAvatar();
+
 const avatarSlice = createSlice({
   name: "avatar",
   initialState: {
-    avatar: randomAvatar(),
+    ...{ elements, style },
     genderFilter: {
       male: true,
       female: true
@@ -16,10 +18,10 @@ const avatarSlice = createSlice({
   },
   reducers: {
     setAvatarElements(state, action) {
-      state.avatar.elements = action.payload;
+      state.elements = action.payload;
     },
     setAvatarStyle(state, action) {
-      state.avatar.style = action.payload;
+      state.style = action.payload;
     },
     toggleGenderFilterState(state, action) {
       state.genderFilter[action.payload] = !state.genderFilter[action.payload];
