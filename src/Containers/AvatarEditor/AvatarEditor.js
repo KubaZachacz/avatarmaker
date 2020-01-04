@@ -16,13 +16,13 @@ import {
   PARTS_LENGTHS,
   PART_STYLE_MAP,
   DEFAULT_COLORS
-} from "./Avatar";
+} from "../../components/Avatar";
 import { randomAvatar, randomSrcAvatar } from "./randomAvatar";
-import ColorPickerPopper from "./ColorPickerPopper";
+import ColorPickerPopper from "../../components/ColorPickerPopper";
 import GenderFilter from "./GenderFilter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDice } from "@fortawesome/free-solid-svg-icons";
-import avatarConfig from "../../assets/avatar/avatar-config.json";
+import avatarConfig from "../../components/Avatar/source/avatar-config.json";
 
 const filterByGender = () => {
   const genderOptions = ["all", ...GENDERS];

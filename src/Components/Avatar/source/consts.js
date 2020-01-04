@@ -1,4 +1,4 @@
-import avatarSrc from "../../../assets/avatar/avatars.json";
+import avatarSrc from "./avatar-source.json";
 
 export const PARTS = Object.keys(avatarSrc);
 

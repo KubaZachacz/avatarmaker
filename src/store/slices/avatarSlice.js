@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { loadState } from "../../utilis/localStorage";
-import { randomAvatar } from "../../Components/AvatarEditor";
+import { randomAvatar } from "../../containers/AvatarEditor";
 
 const persistedState = loadState(); // try to load state from local storage
 

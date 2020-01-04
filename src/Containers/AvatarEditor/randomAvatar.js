@@ -1,5 +1,9 @@
 import random from "lodash/random";
-import { PARTS, PARTS_LENGTHS, DEFAULT_COLORS } from "./Avatar/consts";
+import {
+  PARTS,
+  PARTS_LENGTHS,
+  DEFAULT_COLORS
+} from "../../components/Avatar/source/consts";
 import sample from "lodash/sample";
 
 export const randomAvatar = () => {

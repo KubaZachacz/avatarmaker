@@ -5,4 +5,4 @@ export {
   GENDERS,
   PARTS_LENGTHS,
   PART_STYLE_MAP
-} from "./consts";
+} from "./source/consts";
