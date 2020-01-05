@@ -78,7 +78,7 @@
   "beards": {
     "0": {
       "male": true,
-      "female": false
+      "female": true
     },
     "1": {
       "male": true,

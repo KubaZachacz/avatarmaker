@@ -12,7 +12,8 @@ import {
   PARTS_LENGTHS,
   PART_STYLE_MAP,
   DEFAULT_COLORS,
-  ELEMENTS_BY_GENDER
+  EDITOR_PARTS_ORDER,
+  EDITOR_PARTS_TEXTS
 } from "../../components/Avatar";
 import { randomAvatarByGender as randomAvatar } from "../../components/Avatar/utilis/randomAvatar";
 import ColorPickerPopper from "../../components/ColorPickerPopper";
@@ -23,7 +24,7 @@ import { faDice } from "@fortawesome/free-solid-svg-icons";
 import avatarConfig from "../../components/Avatar/source/avatar-config.json";
 import { Trans } from "@lingui/macro";
 
-const REVERSED_PARTS = [...PARTS].reverse();
+// const REVERSED_PARTS = [...PARTS].reverse();
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -106,7 +107,7 @@ const AvatarEditor = props => {
     dispatch(setAvatarStyle(style));
   };
 
-  const editLinesArray = REVERSED_PARTS.map(part => {
+  const editLinesArray = EDITOR_PARTS_ORDER.map(part => {
     console.log(
       "PART_STYLE_MAP",
       !!PART_STYLE_MAP[part] ? openColorPicker : "undefined"
@@ -117,8 +118,10 @@ const AvatarEditor = props => {
         <EditorsLine
           key={`config-${part}`}
           part={part}
+          text={EDITOR_PARTS_TEXTS[part]}
           partLP={avatarElements[part] + 1}
           partTotal={PARTS_LENGTHS[part]}
+          // genderTotal={avatarConfig[part]}
           changePart={changePartHandler}
           classes={classes}
           {...(!!PART_STYLE_MAP[part] && { openPicker: openColorPicker })}

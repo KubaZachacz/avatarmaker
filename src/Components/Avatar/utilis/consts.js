@@ -1,6 +1,7 @@
 import { groupByGenders } from "../utilis/groupByGenders";
 import avatarSrc from "../source/avatar-source.json";
 import avatarConfig from "../source/avatar-config.json";
+import { t } from "@lingui/macro";
 
 export const PARTS = Object.keys(avatarSrc);
 
@@ -19,6 +20,34 @@ export const PART_STYLE_MAP = {
   clothes: "clothes-style"
   // mouths: "female_mouth_style"
 };
+
+export const EDITOR_PARTS_TEXTS = {
+  hair_top: t`hair`,
+  ears: t`ears`,
+  glasses: t`glasses`,
+  eye_brows: t`eye brows`,
+  eyes: t`eyes`,
+  noses: t`nose`,
+  mouths: t`mouth`,
+  beards: t`beard`,
+  faces: t`face`,
+  necks: t`neck`,
+  clothes: t`clothes`
+};
+
+export const EDITOR_PARTS_ORDER = [
+  "hair_top",
+  "ears",
+  "glasses",
+  "eye_brows",
+  "eyes",
+  "noses",
+  "mouths",
+  "beards",
+  "faces",
+  "necks",
+  "clothes"
+];
 
 export const DEFAULT_COLORS = {
   faces: ["#f0beb4", "#f0d0b4", "#b5917c", "#6e554b"],

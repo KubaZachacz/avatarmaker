@@ -6,6 +6,7 @@ import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import ColorLens from "@material-ui/icons/ColorLens";
 import clsx from "clsx";
+import { Trans } from "@lingui/macro";
 
 const useStyles = makeStyles(theme => ({
   editorsLine: {
@@ -14,11 +15,21 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center"
   },
   text: {
-    width: 200
+    width: 200,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between"
   },
   fab: {
     width: "34px !important",
     margin: "4px"
+  },
+  name: {
+    fontWeight: 500
+  },
+  numbers: {
+    marginRight: theme.spacing(6),
+    fontStyle: "italic"
   }
 }));
 
@@ -48,14 +59,26 @@ StyledFab.defaultProps = {
   color: "primary"
 };
 
-const EditorsLine = ({ part, partLP, partTotal, changePart, openPicker }) => {
+const EditorsLine = ({
+  part,
+  text,
+  partLP,
+  partTotal,
+  changePart,
+  openPicker
+}) => {
   const classes = useStyles();
-  console.log(part, openPicker);
+  console.log(part, text);
   return (
     <div className={classes.editorsLine}>
-      <Typography
-        className={classes.text}
-      >{`${part} ${partLP}/${partTotal}`}</Typography>
+      <div className={classes.text}>
+        <Typography className={classes.name}>
+          <Trans id={text} />
+        </Typography>
+        <Typography className={classes.numbers}>
+          {`${partLP}/${partTotal}`}
+        </Typography>
+      </div>
 
       <StyledFab onClick={() => changePart(part, -1)}>
         <ChevronLeft />
@@ -74,6 +97,7 @@ const EditorsLine = ({ part, partLP, partTotal, changePart, openPicker }) => {
 
 EditorsLine.propTypes = {
   part: PropTypes.string.isRequired,
+  text: PropTypes.object.isRequired,
   partLP: PropTypes.number.isRequired,
   partTotal: PropTypes.number.isRequired,
   changePart: PropTypes.func.isRequired,

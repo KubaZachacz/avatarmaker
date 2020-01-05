@@ -15,6 +15,12 @@ export const LANG_FLAG_CODES = {
   pl: "PL"
 };
 
+export const GENDER_FILTERS = {
+  neutral: "neutral",
+  male: "male",
+  female: "female"
+};
+
 export const DEFAULT_THEME = {
   palette: {
     primary: {
