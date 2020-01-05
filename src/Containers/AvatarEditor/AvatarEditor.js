@@ -5,52 +5,25 @@ import {
   setAvatarElements
 } from "../../store/slices/avatarSlice";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Button, IconButton, Fab } from "@material-ui/core";
-import ChevronLeft from "@material-ui/icons/ChevronLeft";
-import ChevronRight from "@material-ui/icons/ChevronRight";
-import ColorLens from "@material-ui/icons/ColorLens";
+import { Typography, Button } from "@material-ui/core";
 import {
   Avatar,
   PARTS,
-  GENDERS,
   PARTS_LENGTHS,
   PART_STYLE_MAP,
-  DEFAULT_COLORS
+  DEFAULT_COLORS,
+  ELEMENTS_BY_GENDER
 } from "../../components/Avatar";
-import { randomAvatar, randomSrcAvatar } from "./randomAvatar";
+import { randomAvatarByGender as randomAvatar } from "../../components/Avatar/utilis/randomAvatar";
 import ColorPickerPopper from "../../components/ColorPickerPopper";
-import GenderFilter from "./GenderFilter";
+import GenderFilter from "./components/GenderFilter";
+import EditorsLine from "./components/EditorsLine";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDice } from "@fortawesome/free-solid-svg-icons";
 import avatarConfig from "../../components/Avatar/source/avatar-config.json";
-
-const filterByGender = () => {
-  const genderOptions = ["all", ...GENDERS];
-  const output = {};
-  for (let gender of genderOptions) {
-    output[gender] = {};
-    for (let part of PARTS) {
-      output[gender][part] = [];
-    }
-  }
-  for (let part of PARTS) {
-    if (part !== "hair_back") {
-      const elements = Object.keys(avatarConfig[part]);
-      for (let element of elements) {
-        output["all"][part].push(element);
-        for (let gender of GENDERS) {
-          if (avatarConfig[part][element][gender]) {
-            output[gender][part].push(element);
-          }
-        }
-      }
-    }
-  }
-  return output;
-};
+import { Trans } from "@lingui/macro";
 
 const REVERSED_PARTS = [...PARTS].reverse();
-const avatarElementsByGender = filterByGender();
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -61,14 +34,6 @@ const useStyles = makeStyles(theme => ({
   },
   editLinesArray: {
     width: "100%"
-  },
-  EditLine: {
-    margin: "0 auto",
-    display: "flex",
-    alignItems: "center"
-  },
-  Text: {
-    width: 200
   },
   avatarWrapper: {
     width: "100%",
@@ -85,62 +50,12 @@ const useStyles = makeStyles(theme => ({
   Avatar: {
     maxHeight: 490
   },
-  Fab: {
-    width: "34px !important",
-    margin: "4px"
-  },
   Random: {
     width: "100%",
     height: 48,
     margin: "8px 0"
   }
 }));
-
-const EditLine = ({
-  part,
-  partLP,
-  partTotal,
-  changePart,
-  classes,
-  openPicker
-}) => (
-  <div className={classes.EditLine}>
-    <Typography
-      className={classes.Text}
-    >{`${part} ${partLP}/${partTotal}`}</Typography>
-
-    <Fab
-      size="small"
-      variant="extended"
-      color="primary"
-      className={classes.Fab}
-      onClick={() => changePart(part, -1)}
-    >
-      <ChevronLeft />
-    </Fab>
-
-    <Fab
-      size="small"
-      variant="extended"
-      color="primary"
-      className={classes.Fab}
-      onClick={() => changePart(part, 1)}
-    >
-      <ChevronRight />
-    </Fab>
-    {!!openPicker && (
-      <Fab
-        size="small"
-        variant="extended"
-        color="secondary"
-        className={classes.Fab}
-        onClick={e => openPicker(e, part)}
-      >
-        <ColorLens />
-      </Fab>
-    )}
-  </div>
-);
 
 const AvatarEditor = props => {
   const classes = useStyles();
@@ -179,34 +94,38 @@ const AvatarEditor = props => {
   };
 
   const randomHandler = () => {
-    let source = avatarElementsByGender["all"];
-    if (!maleFilter && femaleFilter) source = avatarElementsByGender["male"];
-    else if (maleFilter && !femaleFilter)
-      source = avatarElementsByGender["female"];
-    const { elements, style } = randomSrcAvatar(source);
+    let gender = "all";
+    if (!maleFilter && femaleFilter) gender = "male";
+    else if (maleFilter && !femaleFilter) gender = "female";
+    const { elements, style } = randomAvatar(gender);
     dispatch(setAvatarElements(elements));
     dispatch(setAvatarStyle(style));
   };
 
-  const editLinesArray = REVERSED_PARTS.map(
-    part =>
+  const editLinesArray = REVERSED_PARTS.map(part => {
+    console.log(
+      "PART_STYLE_MAP",
+      !!PART_STYLE_MAP[part] ? openColorPicker : "undefined"
+    );
+
+    return (
       part !== "hair_back" && (
-        <EditLine
+        <EditorsLine
           key={`config-${part}`}
           part={part}
           partLP={avatarElements[part] + 1}
           partTotal={PARTS_LENGTHS[part]}
           changePart={changePartHandler}
           classes={classes}
-          openPicker={!!PART_STYLE_MAP[part] && openColorPicker}
+          {...(!!PART_STYLE_MAP[part] && { openPicker: openColorPicker })}
         />
       )
-  );
+    );
+  });
 
   return (
     <div className={classes.root}>
       <div className={classes.avatarWrapper}>
-        {/* <img src={photoFrame} className={classes.photoFrame} /> */}
         <Avatar
           {...{ avatarElements, avatarStyle }}
           className={classes.Avatar}
@@ -221,7 +140,8 @@ const AvatarEditor = props => {
           className={classes.Random}
           onClick={randomHandler}
         >
-          RANDOM <FontAwesomeIcon icon={faDice} size="lg" />
+          <Trans>RANDOM</Trans>&nbsp;
+          <FontAwesomeIcon icon={faDice} size="lg" />
         </Button>
         <ColorPickerPopper
           {...{ anchorEl }}

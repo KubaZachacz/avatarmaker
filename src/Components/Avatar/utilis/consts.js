@@ -1,4 +1,6 @@
-import avatarSrc from "./avatar-source.json";
+import { groupByGenders } from "../utilis/groupByGenders";
+import avatarSrc from "../source/avatar-source.json";
+import avatarConfig from "../source/avatar-config.json";
 
 export const PARTS = Object.keys(avatarSrc);
 
@@ -9,11 +11,11 @@ for (let part of PARTS) {
   PARTS_LENGTHS[part] = Object.keys(avatarSrc[part]).length;
 }
 
+export const ELEMENTS_BY_GENDER = groupByGenders(avatarConfig, GENDERS);
+
 export const PART_STYLE_MAP = {
   hair_top: "hair-style",
-  // hair_back: "hair-style",
   faces: "skin-style",
-  // eye_brows: "eye_brow",
   clothes: "clothes-style"
   // mouths: "female_mouth_style"
 };

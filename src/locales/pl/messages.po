@@ -14,5 +14,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/App.js:48
-msgid "Content goes here"
-msgstr "Treść idzie tutaj"
+#~ msgid "Content goes here"
+#~ msgstr "Treść idzie tutaj"
+
+#: src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js:61
+msgid "Gender filter:"
+msgstr ""
+
+#: src/containers/AvatarEditor/AvatarEditor.js:165
+msgid "RANDOM"
+msgstr "LOSUJ"

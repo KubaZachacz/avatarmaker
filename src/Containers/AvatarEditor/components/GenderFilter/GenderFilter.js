@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import { Trans } from "@lingui/macro";
-import { toggleGenderFilter } from "../../../store/slices/avatarSlice";
+import { toggleGenderFilter } from "../../../../store/slices/avatarSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVenus, faMars } from "@fortawesome/free-solid-svg-icons";
 
@@ -45,6 +46,36 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const StyledToggleButton = ({
+  children,
+  value,
+  selected,
+  onChange,
+  className
+}) => {
+  const classes = useStyles();
+
+  return (
+    <ToggleButton
+      {...{ value, selected, onChange, className }}
+      classes={{
+        root: classes.ToogleButton,
+        selected: classes.ToogleSelected
+      }}
+    >
+      {children}
+    </ToggleButton>
+  );
+};
+
+StyledToggleButton.propTypes = {
+  children: PropTypes.element,
+  value: PropTypes.string,
+  selected: PropTypes.bool,
+  className: PropTypes.string,
+  onChange: PropTypes.func
+};
+
 const GenderFilter = ({ maleFilter, femaleFilter }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -60,28 +91,20 @@ const GenderFilter = ({ maleFilter, femaleFilter }) => {
       <Typography className={classes.Text}>
         <Trans>Gender filter: </Trans> {genderText()}
       </Typography>
-      <ToggleButton
+      <StyledToggleButton
         value="male"
         selected={maleFilter}
         onChange={() => dispatch(toggleGenderFilter("male"))}
-        classes={{
-          root: classes.ToogleButton,
-          selected: classes.ToogleSelected
-        }}
       >
         <FontAwesomeIcon icon={faMars} size="lg" />
-      </ToggleButton>
-      <ToggleButton
+      </StyledToggleButton>
+      <StyledToggleButton
         value="female"
         selected={femaleFilter}
         onChange={() => dispatch(toggleGenderFilter("female"))}
-        classes={{
-          root: classes.ToogleButton,
-          selected: classes.ToogleSelected
-        }}
       >
         <FontAwesomeIcon icon={faVenus} size="lg" />
-      </ToggleButton>
+      </StyledToggleButton>
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { createMuiTheme, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { Paper, Toolbar } from "@material-ui/core";
 import { I18nProvider } from "@lingui/react";
-import { Trans } from "@lingui/macro";
+// import { Trans } from "@lingui/macro";
 import { langCatalogs } from "./locales";
 
 import { DEFAULT_SETUP, DEFAULT_THEME, PALETTE_TYPES } from "./consts";

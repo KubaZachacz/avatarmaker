@@ -3,7 +3,7 @@ import avatarSrc from "./source/avatar-source.json";
 import ReactHtmlParser from "react-html-parser";
 import { css } from "glamor";
 import clsx from "clsx";
-import { PARTS, PART_STYLE_MAP } from "./source/consts";
+import { PARTS, PART_STYLE_MAP } from "./utilis/consts";
 import {
   FaceGradient,
   GlassesGradient,
