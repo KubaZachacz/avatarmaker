@@ -64,7 +64,8 @@
   opacity: 0.1;
 }
 
-.primary-fill {
+.primary-fill,
+.eyes {
   fill: #0a1e28;
 }
 
