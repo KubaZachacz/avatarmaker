@@ -22,8 +22,8 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.contrastText,
     backgroundColor: theme.palette.primary.main,
     border: "none",
-    minWidth: 48,
-    height: 48,
+    minWidth: 40,
+    height: 40,
     marginLeft: "8px !important",
     transition: "all 250ms",
     boxShadow:
@@ -38,8 +38,8 @@ const useStyles = makeStyles(theme => ({
     color: `${theme.palette.primary.contrastText} !important`,
     backgroundColor: `${theme.palette.primary.dark} !important`,
     filter: "brightness(0.75)",
-    minWidth: 48,
-    height: 48,
+    minWidth: 40,
+    height: 40,
     "&:hover": {
       filter: "brightness(1.1)"
     }
@@ -81,15 +81,15 @@ const GenderFilter = ({ maleFilter, femaleFilter }) => {
   const dispatch = useDispatch();
 
   const genderText = () => {
-    if (!maleFilter && !femaleFilter) return "any";
-    else if (!maleFilter && femaleFilter) return "male";
-    else if (maleFilter && !femaleFilter) return "female";
+    if (!maleFilter && !femaleFilter) return <Trans>neutral</Trans>;
+    else if (!maleFilter && femaleFilter) return <Trans>male</Trans>;
+    else if (maleFilter && !femaleFilter) return <Trans>female</Trans>;
   };
 
   return (
     <div className={classes.GenderFilter}>
       <Typography className={classes.Text}>
-        <Trans>Gender filter: </Trans> {genderText()}
+        <Trans>Gender: </Trans> {genderText()}
       </Typography>
       <StyledToggleButton
         value="male"

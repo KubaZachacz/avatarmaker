@@ -1,9 +1,33 @@
 {
-  "Gender filter:": {
+  "neutral": {
     "origin": [
       [
         "src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js",
-        61
+        84
+      ]
+    ]
+  },
+  "male": {
+    "origin": [
+      [
+        "src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js",
+        85
+      ]
+    ]
+  },
+  "female": {
+    "origin": [
+      [
+        "src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js",
+        86
+      ]
+    ]
+  },
+  "Gender:": {
+    "origin": [
+      [
+        "src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js",
+        92
       ]
     ]
   }

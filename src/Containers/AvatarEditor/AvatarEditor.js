@@ -5,7 +5,7 @@ import {
   setAvatarElements
 } from "../../store/slices/avatarSlice";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Button } from "@material-ui/core";
+import { Typography, Button, Divider } from "@material-ui/core";
 import {
   Avatar,
   PARTS,
@@ -54,6 +54,10 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     height: 48,
     margin: "8px 0"
+  },
+  divider: {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2)
   }
 }));
 
@@ -132,8 +136,16 @@ const AvatarEditor = props => {
         />
       </div>
       <div className={classes.editLinesArray}>
+        <Typography variant="h6">
+          <Trans>Filters:</Trans>
+        </Typography>
         <GenderFilter {...{ maleFilter, femaleFilter }} />
+        <Divider className={classes.divider} />
+        <Typography variant="h6">
+          <Trans>Modifiers:</Trans>
+        </Typography>
         {editLinesArray}
+        <Divider className={classes.divider} />
         <Button
           variant="contained"
           color="primary"

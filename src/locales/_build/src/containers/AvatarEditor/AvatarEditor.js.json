@@ -1,9 +1,25 @@
 {
+  "Filters:": {
+    "origin": [
+      [
+        "src/containers/AvatarEditor/AvatarEditor.js",
+        140
+      ]
+    ]
+  },
+  "Modifiers:": {
+    "origin": [
+      [
+        "src/containers/AvatarEditor/AvatarEditor.js",
+        145
+      ]
+    ]
+  },
   "RANDOM": {
     "origin": [
       [
         "src/containers/AvatarEditor/AvatarEditor.js",
-        165
+        155
       ]
     ]
   }

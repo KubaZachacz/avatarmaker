@@ -17,10 +17,34 @@ msgstr ""
 #~ msgid "Content goes here"
 #~ msgstr "Content goes here"
 
-#: src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js:61
-msgid "Gender filter:"
-msgstr "Gender filter:"
+#: src/containers/AvatarEditor/AvatarEditor.js:140
+msgid "Filters:"
+msgstr "Filters:"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:165
+#: src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js:61
+#~ msgid "Gender filter:"
+#~ msgstr "Gender filter:"
+
+#: src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js:92
+msgid "Gender:"
+msgstr "Gender:"
+
+#: src/containers/AvatarEditor/AvatarEditor.js:145
+msgid "Modifiers:"
+msgstr "Modifiers:"
+
+#: src/containers/AvatarEditor/AvatarEditor.js:155
 msgid "RANDOM"
 msgstr "RANDOM"
+
+#: src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js:86
+msgid "female"
+msgstr "female"
+
+#: src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js:85
+msgid "male"
+msgstr "male"
+
+#: src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js:84
+msgid "neutral"
+msgstr "neutral"
