@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
+import { Typography, Tooltip } from "@material-ui/core";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import ColorLens from "@material-ui/icons/ColorLens";
 import { Trans } from "@lingui/macro";
-import StyledFab from "../StyledFab";
+import Fab from "../../../../components/StyledFab";
 
 const useStyles = makeStyles(theme => ({
   editorsLine: {
@@ -60,16 +60,16 @@ const EditorsLine = ({
         </Typography>
       </div>
 
-      <StyledFab onClick={() => changePart(part, -1)}>
+      <Fab onClick={() => changePart(part, -1)}>
         <ChevronLeft />
-      </StyledFab>
-      <StyledFab onClick={() => changePart(part, 1)}>
+      </Fab>
+      <Fab onClick={() => changePart(part, 1)}>
         <ChevronRight />
-      </StyledFab>
+      </Fab>
       {!!openPicker && (
-        <StyledFab color="secondary" onClick={e => openPicker(e, part)}>
+        <Fab color="secondary" onClick={e => openPicker(e, part)}>
           <ColorLens />
-        </StyledFab>
+        </Fab>
       )}
     </div>
   );

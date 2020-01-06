@@ -35,6 +35,7 @@ const Avatar = ({ className, avatarElements, avatarStyle }) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 110 150"
       {...css(avatarStyleObject)}
+      id="avatar"
     >
       <FaceGradient />
       <GlassesGradient />

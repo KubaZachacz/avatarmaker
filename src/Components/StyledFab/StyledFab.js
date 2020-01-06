@@ -11,15 +11,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const StyledFab = ({ children, color, className, onClick }) => {
+const StyledFab = ({ children, size, color, className, onClick }) => {
   const classes = useStyles();
 
   return (
     <Fab
-      size="small"
       variant="extended"
       className={clsx(classes.root, className)}
-      {...{ color, onClick }}
+      {...{ size, color, onClick }}
     >
       {children}
     </Fab>
@@ -34,7 +33,8 @@ StyledFab.propTypes = {
 };
 
 StyledFab.defaultProps = {
-  color: "primary"
+  color: "primary",
+  size: "small"
 };
 
 export default StyledFab;

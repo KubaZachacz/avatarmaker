@@ -26,9 +26,13 @@ import { faDice } from "@fortawesome/free-solid-svg-icons";
 import { faSave } from "@fortawesome/free-regular-svg-icons";
 import { Trans } from "@lingui/macro";
 import { GENDER_FILTERS } from "../../consts";
+import SvgSaver from "svgsaver";
 import GenderFilterRow from "./components/GenderFilterRow";
 import EditorsLine from "./components/EditorsLine";
-import StyledFab from "./components/StyledFab";
+import Fab from "../../components/StyledFab";
+import FabWithTooltip from "../../components/FabWithTooltip";
+
+var svgsaver = new SvgSaver();
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -76,9 +80,9 @@ const useStyles = makeStyles(theme => ({
   saveButton: {
     position: "absolute",
     bottom: 0,
-    width: "64px !important",
-    height: "64px !important",
-    borderRadius: "50% !important",
+    // width: "64px !important",
+    // height: "64px !important",
+    // borderRadius: "50% !important",
     right: theme.spacing(1),
     [theme.breakpoints.up("md")]: {
       right: theme.spacing(5)
@@ -140,7 +144,8 @@ const AvatarEditor = props => {
   };
 
   const onSave = () => {
-    console.log("save");
+    var svg = document.querySelector("#avatar");
+    svgsaver.asPng(svg);
   };
 
   const editLinesArray = EDITOR_PARTS_ORDER.map(part => {
@@ -169,9 +174,14 @@ const AvatarEditor = props => {
             {...{ avatarElements, avatarStyle }}
             className={classes.Avatar}
           />
-          <StyledFab className={classes.saveButton} onClick={onSave}>
+          <FabWithTooltip
+            className={classes.saveButton}
+            onClick={onSave}
+            size="large"
+            title={<Trans>Save as PNG</Trans>}
+          >
             <FontAwesomeIcon icon={faSave} size="lg" />
-          </StyledFab>
+          </FabWithTooltip>
         </div>
       </div>
       <div className={classes.column}>
