@@ -7,7 +7,6 @@ import { faLightbulb as onDarkModeIcon } from "@fortawesome/free-regular-svg-ico
 import { langCatalogs } from "../../locales";
 import { LANG_FLAG_CODES } from "../../consts";
 import { FlagIcon } from "react-flag-kit";
-
 import {
   Toolbar,
   AppBar,
@@ -18,7 +17,7 @@ import {
   Select,
   MenuItem
 } from "@material-ui/core";
-import { Trans } from "@lingui/react";
+import { Trans } from "@lingui/macro";
 
 const languagesList = Object.keys(langCatalogs);
 
@@ -49,6 +48,9 @@ const useStyles = makeStyles(theme => ({
   },
   flag: {
     verticalAlign: "middle"
+  },
+  lightModeIcon: {
+    width: 44
   }
 }));
 
@@ -56,10 +58,14 @@ const TopMenu = ({ onToggleDarkMode, isDarkMode, lang, onChageLanguage }) => {
   const classes = useStyles();
 
   const lightModeIcon = (
-    <Tooltip title={isDarkMode ? "light mode" : "dark mode"}>
+    <Tooltip
+      title={isDarkMode ? <Trans>light mode</Trans> : <Trans>dark mode</Trans>}
+    >
       <IconButton
         aria-label="light mode"
         onClick={() => onToggleDarkMode(!isDarkMode)}
+        variant="extended"
+        className={classes.lightModeIcon}
       >
         {isDarkMode ? (
           <FontAwesomeIcon icon={offDarkModeIcon} className={classes.icon} />

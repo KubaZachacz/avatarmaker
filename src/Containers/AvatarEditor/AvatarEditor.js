@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setAvatarStyle,
@@ -29,7 +29,6 @@ import { GENDER_FILTERS } from "../../consts";
 import SvgSaver from "svgsaver";
 import GenderFilterRow from "./components/GenderFilterRow";
 import EditorsLine from "./components/EditorsLine";
-import Fab from "../../components/StyledFab";
 import FabWithTooltip from "../../components/FabWithTooltip";
 
 var svgsaver = new SvgSaver();

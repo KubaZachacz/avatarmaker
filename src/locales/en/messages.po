@@ -17,7 +17,7 @@ msgstr ""
 #~ msgid "Content goes here"
 #~ msgstr "Content goes here"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:156
+#: src/containers/AvatarEditor/AvatarEditor.js:188
 msgid "Filters:"
 msgstr "Filters:"
 
@@ -29,13 +29,17 @@ msgstr "Filters:"
 msgid "Gender:"
 msgstr "Gender:"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:164
+#: src/containers/AvatarEditor/AvatarEditor.js:196
 msgid "Modifiers:"
 msgstr "Modifiers:"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:174
+#: src/containers/AvatarEditor/AvatarEditor.js:206
 msgid "RANDOM"
 msgstr "RANDOM"
+
+#: src/containers/AvatarEditor/AvatarEditor.js:180
+msgid "Save as PNG"
+msgstr "Save as PNG"
 
 #: src/components/Avatar/utilis/consts.js:32
 msgid "beard"
@@ -44,6 +48,10 @@ msgstr "beard"
 #: src/components/Avatar/utilis/consts.js:35
 msgid "clothes"
 msgstr "clothes"
+
+#: src/containers/TopMenu/TopMenu.js:62
+msgid "dark mode"
+msgstr "dark mode"
 
 #: src/components/Avatar/utilis/consts.js:26
 msgid "ears"
@@ -72,6 +80,10 @@ msgstr "glasses"
 #: src/components/Avatar/utilis/consts.js:25
 msgid "hair"
 msgstr "hair"
+
+#: src/containers/TopMenu/TopMenu.js:62
+msgid "light mode"
+msgstr "light mode"
 
 #: src/consts/index.js:27
 msgid "male"
