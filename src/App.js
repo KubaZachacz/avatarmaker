@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setLanguage, toggleDarkMode } from "./store/slices/settingsSlice";
 import { makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { Paper, Toolbar } from "@material-ui/core";
@@ -6,7 +8,7 @@ import { I18nProvider } from "@lingui/react";
 // import { Trans } from "@lingui/macro";
 import { langCatalogs } from "./locales";
 
-import { DEFAULT_SETUP, DEFAULT_THEME, PALETTE_TYPES } from "./consts";
+import { DEFAULT_THEME, PALETTE_TYPES } from "./consts";
 import { useEditableTheme } from "./hooks";
 import TopMenu from "./containers/TopMenu";
 import AvatarEditor from "./containers/AvatarEditor";
@@ -21,32 +23,27 @@ const useStyles = makeStyles(theme => ({
 
 function App() {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
-  const [appSetup, setAppSetup] = useState(DEFAULT_SETUP);
   const { theme, overrideThemePalette } = useEditableTheme(DEFAULT_THEME);
-  const { isDarkMode, lang } = appSetup;
+
+  const { isDarkMode, lang } = useSelector(state => state.settings);
 
   const onToggleDarkMode = useCallback(
     isDarkMode => {
       overrideThemePalette({
         type: isDarkMode ? PALETTE_TYPES.dark : PALETTE_TYPES.light
       });
-      setAppSetup({
-        ...appSetup,
-        isDarkMode: isDarkMode
-      });
+      dispatch(toggleDarkMode());
     },
-    [appSetup, overrideThemePalette]
+    [dispatch, overrideThemePalette]
   );
 
   const onChageLanguage = useCallback(
     lang => {
-      setAppSetup({
-        ...appSetup,
-        lang: lang
-      });
+      dispatch(setLanguage(lang));
     },
-    [appSetup]
+    [dispatch]
   );
 
   return (

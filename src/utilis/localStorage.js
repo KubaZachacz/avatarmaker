@@ -1,6 +1,5 @@
 export const STORAGE_NAMES = {
-  state: "KorpoState",
-  settings: "KorpoSettings"
+  state: "avatarMaker"
 };
 
 export const loadState = (place = STORAGE_NAMES.state) => {
@@ -27,7 +26,7 @@ export const saveState = (state, place = STORAGE_NAMES.state) => {
 export const clearState = (place = STORAGE_NAMES.state) => {
   if (typeof Storage !== "undefined") {
     // console.log("remove", place, loadState(place));
-    localStorage.removeItem("KorpoState");
+    localStorage.removeItem("avatarMaker");
     document.location.reload();
   }
 };

@@ -1,27 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loadState, saveState, STORAGE_NAMES } from "../../utilis/localStorage";
+import { loadState, STORAGE_NAMES } from "../../utilis/localStorage";
+import { LANGUAGES } from "../../consts";
 
-const persistedState = loadState(STORAGE_NAMES.settings); // try to load state from local storage
+const persistedState = loadState(STORAGE_NAMES.state); // try to load state from local storage
 
 const settingsSlice = createSlice({
   name: "settings",
   initialState: {
-    lang: "pl",
+    lang: LANGUAGES.en,
+    isDarkMode: false,
     ...persistedState
   },
   reducers: {
-    setLanguageState(state, action) {
+    setLanguage(state, action) {
       state.lang = action.payload;
+    },
+    toggleDarkMode(state, action) {
+      state.isDarkMode = !state.isDarkMode;
     }
   }
 });
 
-export const { setLanguageState } = settingsSlice.actions;
+export const { setLanguage, toggleDarkMode } = settingsSlice.actions;
 
 export default settingsSlice.reducer;
-
-export const setLanguage = payload => (dispatch, getState) => {
-  dispatch(setLanguageState(payload));
-  const { settings } = getState();
-  saveState(settings, STORAGE_NAMES.settings);
-};
