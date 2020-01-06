@@ -9,11 +9,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Button, Divider } from "@material-ui/core";
 import {
   Avatar,
+  AVATAR_CONFIG,
   PARTS_LENGTHS,
   PART_STYLE_MAP,
   DEFAULT_COLORS,
   EDITOR_PARTS_ORDER,
-  EDITOR_PARTS_TEXTS
+  EDITOR_PARTS_TEXTS,
+  ELEMENTS_BY_GENDER
 } from "../../components/Avatar";
 import { randomAvatarByGender as randomAvatar } from "../../components/Avatar/utilis/randomAvatar";
 import ColorPickerPopper from "../../components/ColorPickerPopper";
@@ -21,8 +23,8 @@ import GenderFilterRow from "./components/GenderFilterRow";
 import EditorsLine from "./components/EditorsLine";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDice } from "@fortawesome/free-solid-svg-icons";
-import avatarConfig from "../../components/Avatar/source/avatar-config.json";
 import { Trans } from "@lingui/macro";
+import { GENDER_FILTERS } from "../../consts";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -73,14 +75,28 @@ const AvatarEditor = props => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [openedPart, setOpenedPart] = useState(false);
 
-  const changePartHandler = (part, inc) => {
+  const saveNewPartElement = (part, index) => {
     const newAvatarElements = { ...avatarElements };
-    let increment = newAvatarElements[part] + inc;
-    if (avatarElements[part] + inc >= PARTS_LENGTHS[part]) increment = 0;
-    if (avatarElements[part] + inc < 0) increment = PARTS_LENGTHS[part] - 1;
-    newAvatarElements[part] = increment;
-    if (part === "hair_top") newAvatarElements["hair_back"] = increment;
+    newAvatarElements[part] = index;
+    if (part === "hair_top") newAvatarElements["hair_back"] = index;
+
     dispatch(setAvatarElements(newAvatarElements));
+  };
+
+  const changePartHandler = (part, inc, index) => {
+    let elementIndex = avatarElements[part] + inc;
+    if (index || index === 0) elementIndex = index + inc;
+    if (elementIndex >= PARTS_LENGTHS[part]) elementIndex = 0;
+    if (elementIndex < 0) elementIndex = PARTS_LENGTHS[part] - 1;
+    if (genderFilter !== GENDER_FILTERS.neutral) {
+      if (AVATAR_CONFIG[part][elementIndex][genderFilter]) {
+        saveNewPartElement(part, elementIndex);
+      } else {
+        changePartHandler(part, inc, elementIndex);
+      }
+    } else {
+      saveNewPartElement(part, elementIndex);
+    }
   };
 
   const openColorPicker = (e, part) => {
@@ -109,7 +125,7 @@ const AvatarEditor = props => {
           text={EDITOR_PARTS_TEXTS[part]}
           partLP={avatarElements[part] + 1}
           partTotal={PARTS_LENGTHS[part]}
-          // genderTotal={avatarConfig[part]}
+          genderTotal={ELEMENTS_BY_GENDER[genderFilter][part].length}
           changePart={changePartHandler}
           classes={classes}
           {...(!!PART_STYLE_MAP[part] && { openPicker: openColorPicker })}

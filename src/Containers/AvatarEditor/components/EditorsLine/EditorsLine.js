@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center"
   },
   text: {
-    width: 200,
+    width: 240,
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between"
@@ -64,6 +64,7 @@ const EditorsLine = ({
   text,
   partLP,
   partTotal,
+  genderTotal,
   changePart,
   openPicker
 }) => {
@@ -76,7 +77,9 @@ const EditorsLine = ({
           <Trans id={text} />
         </Typography>
         <Typography className={classes.numbers}>
-          {`${partLP}/${partTotal}`}
+          {`${partLP}/${partTotal} ${
+            genderTotal !== partTotal ? "(" + genderTotal + ")" : ""
+          }`}
         </Typography>
       </div>
 
