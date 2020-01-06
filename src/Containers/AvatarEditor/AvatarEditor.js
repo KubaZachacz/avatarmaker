@@ -18,7 +18,9 @@ import {
   ELEMENTS_BY_GENDER
 } from "../../components/Avatar";
 import { randomAvatarByGender as randomAvatar } from "../../components/Avatar/utilis/randomAvatar";
-import ColorPickerPopper from "../../components/ColorPickerPopper";
+import ColorPickerPopper, {
+  useColorPicker
+} from "../../components/ColorPickerPopper";
 import GenderFilterRow from "./components/GenderFilterRow";
 import EditorsLine from "./components/EditorsLine";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -67,13 +69,17 @@ const AvatarEditor = props => {
   const dispatch = useDispatch();
 
   const {
+    anchorEl,
+    openedPart,
+    setOpenedPart,
+    openColorPicker
+  } = useColorPicker();
+
+  const {
     elements: avatarElements,
     style: avatarStyle,
     genderFilter
   } = useSelector(state => state.avatar);
-
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [openedPart, setOpenedPart] = useState(false);
 
   const saveNewPartElement = (part, index) => {
     const newAvatarElements = { ...avatarElements };
@@ -97,11 +103,6 @@ const AvatarEditor = props => {
     } else {
       saveNewPartElement(part, elementIndex);
     }
-  };
-
-  const openColorPicker = (e, part) => {
-    setAnchorEl(e.currentTarget);
-    setOpenedPart(part);
   };
 
   const styleChangeHandler = (part, value) => {
