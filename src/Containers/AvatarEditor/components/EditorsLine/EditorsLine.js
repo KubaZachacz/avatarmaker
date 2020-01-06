@@ -68,7 +68,7 @@ const EditorsLine = ({
   openPicker
 }) => {
   const classes = useStyles();
-  console.log(part, text);
+
   return (
     <div className={classes.editorsLine}>
       <div className={classes.text}>

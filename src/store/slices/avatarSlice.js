@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { loadState } from "../../utilis/localStorage";
 import { randomAvatarByGender as randomAvatar } from "../../components/Avatar";
+import { GENDER_FILTERS } from "../../consts";
 
 const persistedState = loadState(); // try to load state from local storage
 
@@ -10,10 +11,7 @@ const avatarSlice = createSlice({
   name: "avatar",
   initialState: {
     ...{ elements, style },
-    genderFilter: {
-      male: false,
-      female: false
-    },
+    genderFilter: GENDER_FILTERS.neutral,
     ...(persistedState && persistedState.avatar)
   },
   reducers: {
@@ -24,7 +22,7 @@ const avatarSlice = createSlice({
       state.style = action.payload;
     },
     toggleGenderFilterState(state, action) {
-      state.genderFilter[action.payload] = !state.genderFilter[action.payload];
+      state.genderFilter = action.payload;
     }
   }
 });
@@ -38,20 +36,24 @@ export const {
 export default avatarSlice.reducer;
 
 export const toggleGenderFilter = payload => (dispatch, getState) => {
-  const {
-    genderFilter: { male, female }
-  } = getState().avatar;
-  let gender = payload;
-  console.log(gender, male, female);
-  dispatch(toggleGenderFilterState(gender));
-  if (gender === "male" && female) {
-    gender = "female";
-    dispatch(toggleGenderFilterState(gender));
+  const { genderFilter } = getState().avatar;
+  let newFilter = "neutral";
+
+  if (payload === GENDER_FILTERS.male) {
+    if (
+      genderFilter === GENDER_FILTERS.neutral ||
+      genderFilter === GENDER_FILTERS.male
+    ) {
+      newFilter = GENDER_FILTERS.female;
+    }
+  } else if (payload === GENDER_FILTERS.female) {
+    if (
+      genderFilter === GENDER_FILTERS.neutral ||
+      genderFilter === GENDER_FILTERS.female
+    ) {
+      newFilter = GENDER_FILTERS.male;
+    }
   }
-  if (gender === "female" && male) {
-    gender = "male";
-    dispatch(toggleGenderFilterState(gender));
-  }
-  // const { settings } = getState();
-  // saveState(settings, STORAGE_NAMES.settings);
+
+  dispatch(toggleGenderFilterState(newFilter));
 };

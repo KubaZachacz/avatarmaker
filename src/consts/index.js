@@ -1,3 +1,4 @@
+import { t } from "@lingui/macro";
 import { blue, indigo, red } from "@material-ui/core/colors";
 
 export const PALETTE_TYPES = {
@@ -19,6 +20,12 @@ export const GENDER_FILTERS = {
   neutral: "neutral",
   male: "male",
   female: "female"
+};
+
+export const GENDER_FILTERS_TEXTS = {
+  neutral: t`neutral`,
+  male: t`male`,
+  female: t`female`
 };
 
 export const DEFAULT_THEME = {

@@ -20,6 +20,6 @@ export const randomAvatarBySource = source => {
   };
 };
 
-export const randomAvatarByGender = (gender = "all") => {
+export const randomAvatarByGender = (gender = "neutral") => {
   return randomAvatarBySource(ELEMENTS_BY_GENDER[gender]);
 };
