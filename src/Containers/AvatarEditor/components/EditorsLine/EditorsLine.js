@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Fab } from "@material-ui/core";
+import { Typography, Tooltip } from "@material-ui/core";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import ColorLens from "@material-ui/icons/ColorLens";
-import clsx from "clsx";
 import { Trans } from "@lingui/macro";
+import Fab from "../../../../components/StyledFab";
 
 const useStyles = makeStyles(theme => ({
   editorsLine: {
@@ -24,10 +24,6 @@ const useStyles = makeStyles(theme => ({
       width: 240
     }
   },
-  fab: {
-    width: "34px !important",
-    margin: "4px"
-  },
   name: {
     fontWeight: 500
   },
@@ -39,32 +35,6 @@ const useStyles = makeStyles(theme => ({
     }
   }
 }));
-
-const StyledFab = ({ children, color, className, onClick }) => {
-  const classes = useStyles();
-
-  return (
-    <Fab
-      size="small"
-      variant="extended"
-      className={clsx(classes.fab, className)}
-      {...{ color, onClick }}
-    >
-      {children}
-    </Fab>
-  );
-};
-
-StyledFab.propTypes = {
-  children: PropTypes.element,
-  color: PropTypes.string,
-  className: PropTypes.string,
-  onClick: PropTypes.func
-};
-
-StyledFab.defaultProps = {
-  color: "primary"
-};
 
 const EditorsLine = ({
   part,
@@ -90,16 +60,16 @@ const EditorsLine = ({
         </Typography>
       </div>
 
-      <StyledFab onClick={() => changePart(part, -1)}>
+      <Fab onClick={() => changePart(part, -1)}>
         <ChevronLeft />
-      </StyledFab>
-      <StyledFab onClick={() => changePart(part, 1)}>
+      </Fab>
+      <Fab onClick={() => changePart(part, 1)}>
         <ChevronRight />
-      </StyledFab>
+      </Fab>
       {!!openPicker && (
-        <StyledFab color="secondary" onClick={e => openPicker(e, part)}>
+        <Fab color="secondary" onClick={e => openPicker(e, part)}>
           <ColorLens />
-        </StyledFab>
+        </Fab>
       )}
     </div>
   );

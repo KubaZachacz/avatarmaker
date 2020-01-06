@@ -21,12 +21,18 @@ import { randomAvatarByGender as randomAvatar } from "../../components/Avatar/ut
 import ColorPickerPopper, {
   useColorPicker
 } from "../../components/ColorPickerPopper";
-import GenderFilterRow from "./components/GenderFilterRow";
-import EditorsLine from "./components/EditorsLine";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDice } from "@fortawesome/free-solid-svg-icons";
+import { faSave } from "@fortawesome/free-regular-svg-icons";
 import { Trans } from "@lingui/macro";
 import { GENDER_FILTERS } from "../../consts";
+import SvgSaver from "svgsaver";
+import GenderFilterRow from "./components/GenderFilterRow";
+import EditorsLine from "./components/EditorsLine";
+import Fab from "../../components/StyledFab";
+import FabWithTooltip from "../../components/FabWithTooltip";
+
+var svgsaver = new SvgSaver();
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -40,11 +46,12 @@ const useStyles = makeStyles(theme => ({
       flexDirection: "row"
     }
   },
-  editLinesArray: {
+  column: {
     width: "100%"
   },
   avatarWrapper: {
-    width: "100%",
+    width: "90%",
+    margin: "0 auto",
     position: "relative"
   },
   photoFrame: {
@@ -69,6 +76,17 @@ const useStyles = makeStyles(theme => ({
   divider: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2)
+  },
+  saveButton: {
+    position: "absolute",
+    bottom: 0,
+    // width: "64px !important",
+    // height: "64px !important",
+    // borderRadius: "50% !important",
+    right: theme.spacing(1),
+    [theme.breakpoints.up("md")]: {
+      right: theme.spacing(5)
+    }
   }
 }));
 
@@ -125,6 +143,11 @@ const AvatarEditor = props => {
     dispatch(setAvatarStyle(style));
   };
 
+  const onSave = () => {
+    var svg = document.querySelector("#avatar");
+    svgsaver.asPng(svg);
+  };
+
   const editLinesArray = EDITOR_PARTS_ORDER.map(part => {
     return (
       part !== "hair_back" && (
@@ -145,13 +168,23 @@ const AvatarEditor = props => {
 
   return (
     <Container maxWidth="lg" className={classes.root}>
-      <div className={classes.avatarWrapper}>
-        <Avatar
-          {...{ avatarElements, avatarStyle }}
-          className={classes.Avatar}
-        />
+      <div className={classes.column}>
+        <div className={classes.avatarWrapper}>
+          <Avatar
+            {...{ avatarElements, avatarStyle }}
+            className={classes.Avatar}
+          />
+          <FabWithTooltip
+            className={classes.saveButton}
+            onClick={onSave}
+            size="large"
+            title={<Trans>Save as PNG</Trans>}
+          >
+            <FontAwesomeIcon icon={faSave} size="lg" />
+          </FabWithTooltip>
+        </div>
       </div>
-      <div className={classes.editLinesArray}>
+      <div className={classes.column}>
         <Typography variant="h6">
           <Trans>Filters:</Trans>
         </Typography>
