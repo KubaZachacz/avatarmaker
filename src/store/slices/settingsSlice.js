@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loadState, STORAGE_NAMES } from "../../utilis/localStorage";
+import { loadState } from "../../utilis/localStorage";
 import { LANGUAGES } from "../../consts";
 
-const persistedState = loadState(STORAGE_NAMES.state); // try to load state from local storage
+const persistedState = loadState(); // try to load state from local storage
 
 const settingsSlice = createSlice({
   name: "settings",
   initialState: {
     lang: LANGUAGES.en,
     isDarkMode: false,
-    ...persistedState
+    ...(persistedState && persistedState.settings)
   },
   reducers: {
     setLanguage(state, action) {

@@ -25,9 +25,15 @@ function App() {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const { theme, overrideThemePalette } = useEditableTheme(DEFAULT_THEME);
-
   const { isDarkMode, lang } = useSelector(state => state.settings);
+  const initialTheme = {
+    ...DEFAULT_THEME,
+    palette: {
+      ...DEFAULT_THEME.palette,
+      type: isDarkMode ? PALETTE_TYPES.dark : PALETTE_TYPES.light
+    }
+  };
+  const { theme, overrideThemePalette } = useEditableTheme(initialTheme);
 
   const onToggleDarkMode = useCallback(
     isDarkMode => {
