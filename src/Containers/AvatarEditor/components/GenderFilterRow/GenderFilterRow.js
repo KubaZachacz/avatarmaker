@@ -10,7 +10,10 @@ import { GENDER_FILTERS, GENDER_FILTERS_TEXTS } from "../../../../consts";
 
 const useStyles = makeStyles(theme => ({
   Text: {
-    width: 200
+    width: 160,
+    [theme.breakpoints.up("sm")]: {
+      width: 240
+    }
   },
   GenderFilterRow: {
     display: "flex",

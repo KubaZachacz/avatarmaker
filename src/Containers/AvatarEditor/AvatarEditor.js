@@ -6,7 +6,7 @@ import {
   toggleGenderFilter
 } from "../../store/slices/avatarSlice";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Button, Divider } from "@material-ui/core";
+import { Typography, Button, Divider, Container } from "@material-ui/core";
 import {
   Avatar,
   AVATAR_CONFIG,
@@ -33,7 +33,11 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    flexDirection: "column",
+    [theme.breakpoints.up("md")]: {
+      flexDirection: "row"
+    }
   },
   editLinesArray: {
     width: "100%"
@@ -51,7 +55,10 @@ const useStyles = makeStyles(theme => ({
     opacity: 0.1
   },
   Avatar: {
-    maxHeight: 490
+    maxHeight: 350,
+    [theme.breakpoints.up("md")]: {
+      maxHeight: 490
+    }
   },
   Random: {
     width: "100%",
@@ -136,7 +143,7 @@ const AvatarEditor = props => {
   });
 
   return (
-    <div className={classes.root}>
+    <Container maxWidth="lg" className={classes.root}>
       <div className={classes.avatarWrapper}>
         <Avatar
           {...{ avatarElements, avatarStyle }}
@@ -177,7 +184,7 @@ const AvatarEditor = props => {
           presetColors={DEFAULT_COLORS[openedPart]}
         />
       </div>
-    </div>
+    </Container>
   );
 };
 

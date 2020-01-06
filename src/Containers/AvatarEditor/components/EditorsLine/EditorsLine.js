@@ -12,13 +12,17 @@ const useStyles = makeStyles(theme => ({
   editorsLine: {
     margin: "0 auto",
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
+    minWidth: 310
   },
   text: {
-    width: 240,
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    width: 160,
+    [theme.breakpoints.up("sm")]: {
+      width: 240
+    }
   },
   fab: {
     width: "34px !important",
@@ -28,8 +32,11 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 500
   },
   numbers: {
-    marginRight: theme.spacing(6),
-    fontStyle: "italic"
+    fontStyle: "italic",
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up("sm")]: {
+      marginRight: theme.spacing(6)
+    }
   }
 }));
 
