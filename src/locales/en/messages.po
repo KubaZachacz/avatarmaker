@@ -17,7 +17,7 @@ msgstr ""
 #~ msgid "Content goes here"
 #~ msgstr "Content goes here"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:140
+#: src/containers/AvatarEditor/AvatarEditor.js:156
 msgid "Filters:"
 msgstr "Filters:"
 
@@ -25,26 +25,70 @@ msgstr "Filters:"
 #~ msgid "Gender filter:"
 #~ msgstr "Gender filter:"
 
-#: src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js:92
+#: src/containers/AvatarEditor/components/GenderFilterRow/GenderFilterRow.js:88
 msgid "Gender:"
 msgstr "Gender:"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:145
+#: src/containers/AvatarEditor/AvatarEditor.js:164
 msgid "Modifiers:"
 msgstr "Modifiers:"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:155
+#: src/containers/AvatarEditor/AvatarEditor.js:174
 msgid "RANDOM"
 msgstr "RANDOM"
 
-#: src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js:86
+#: src/components/Avatar/utilis/consts.js:32
+msgid "beard"
+msgstr "beard"
+
+#: src/components/Avatar/utilis/consts.js:35
+msgid "clothes"
+msgstr "clothes"
+
+#: src/components/Avatar/utilis/consts.js:26
+msgid "ears"
+msgstr "ears"
+
+#: src/components/Avatar/utilis/consts.js:28
+msgid "eye brows"
+msgstr "eye brows"
+
+#: src/components/Avatar/utilis/consts.js:29
+msgid "eyes"
+msgstr "eyes"
+
+#: src/components/Avatar/utilis/consts.js:33
+msgid "face"
+msgstr "face"
+
+#: src/consts/index.js:28
 msgid "female"
 msgstr "female"
 
-#: src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js:85
+#: src/components/Avatar/utilis/consts.js:27
+msgid "glasses"
+msgstr "glasses"
+
+#: src/components/Avatar/utilis/consts.js:25
+msgid "hair"
+msgstr "hair"
+
+#: src/consts/index.js:27
 msgid "male"
 msgstr "male"
 
-#: src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js:84
+#: src/components/Avatar/utilis/consts.js:31
+msgid "mouth"
+msgstr "mouth"
+
+#: src/components/Avatar/utilis/consts.js:34
+msgid "neck"
+msgstr "neck"
+
+#: src/consts/index.js:26
 msgid "neutral"
 msgstr "neutral"
+
+#: src/components/Avatar/utilis/consts.js:30
+msgid "nose"
+msgstr "nose"

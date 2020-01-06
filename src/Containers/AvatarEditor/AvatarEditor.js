@@ -35,6 +35,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     justifyContent: "space-around",
     flexDirection: "column",
+    marginTop: theme.spacing(2),
     [theme.breakpoints.up("md")]: {
       flexDirection: "row"
     }
