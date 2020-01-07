@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { loadState } from "../../utilis/localStorage";
-import { randomAvatarByGender as randomAvatar } from "../../components/Avatar";
+import { randomAvatarByGender as randomAvatar } from "../../Components/Avatar";
 import { GENDER_FILTERS } from "../../consts";
 
 const persistedState = loadState(); // try to load state from local storage

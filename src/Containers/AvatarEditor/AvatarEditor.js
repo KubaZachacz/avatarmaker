@@ -16,11 +16,11 @@ import {
   EDITOR_PARTS_ORDER,
   EDITOR_PARTS_TEXTS,
   ELEMENTS_BY_GENDER
-} from "../../components/Avatar";
-import { randomAvatarByGender as randomAvatar } from "../../components/Avatar/utilis/randomAvatar";
+} from "../../Components/Avatar";
+import { randomAvatarByGender as randomAvatar } from "../../Components/Avatar/utilis/randomAvatar";
 import ColorPickerPopper, {
   useColorPicker
-} from "../../components/ColorPickerPopper";
+} from "../../Components/ColorPickerPopper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDice } from "@fortawesome/free-solid-svg-icons";
 import { faSave } from "@fortawesome/free-regular-svg-icons";
@@ -29,7 +29,7 @@ import { GENDER_FILTERS } from "../../consts";
 import SvgSaver from "svgsaver";
 import GenderFilterRow from "./components/GenderFilterRow";
 import EditorsLine from "./components/EditorsLine";
-import FabWithTooltip from "../../components/FabWithTooltip";
+import FabWithTooltip from "../../Components/FabWithTooltip";
 
 var svgsaver = new SvgSaver();
 

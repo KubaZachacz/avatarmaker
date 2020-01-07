@@ -6,7 +6,7 @@ import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import ColorLens from "@material-ui/icons/ColorLens";
 import { Trans } from "@lingui/macro";
-import Fab from "../../../../components/StyledFab";
+import Fab from "../../../../Components/StyledFab";
 
 const useStyles = makeStyles(theme => ({
   editorsLine: {

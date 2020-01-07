@@ -17,55 +17,55 @@ msgstr ""
 #~ msgid "Content goes here"
 #~ msgstr "Content goes here"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:188
+#: src/Containers/AvatarEditor/AvatarEditor.js:188
 msgid "Filters:"
 msgstr "Filters:"
 
-#: src/containers/AvatarEditor/components/GenderFilter/GenderFilter.js:61
+#: src/Containers/AvatarEditor/Components/GenderFilter/GenderFilter.js:61
 #~ msgid "Gender filter:"
 #~ msgstr "Gender filter:"
 
-#: src/containers/AvatarEditor/components/GenderFilterRow/GenderFilterRow.js:88
+#: src/Containers/AvatarEditor/Components/GenderFilterRow/GenderFilterRow.js:88
 msgid "Gender:"
 msgstr "Gender:"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:196
+#: src/Containers/AvatarEditor/AvatarEditor.js:196
 msgid "Modifiers:"
 msgstr "Modifiers:"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:206
+#: src/Containers/AvatarEditor/AvatarEditor.js:206
 msgid "RANDOM"
 msgstr "RANDOM"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:180
+#: src/Containers/AvatarEditor/AvatarEditor.js:180
 msgid "Save as PNG"
 msgstr "Save as PNG"
 
-#: src/components/Avatar/utilis/consts.js:32
+#: src/Components/Avatar/utilis/consts.js:32
 msgid "beard"
 msgstr "beard"
 
-#: src/components/Avatar/utilis/consts.js:35
+#: src/Components/Avatar/utilis/consts.js:35
 msgid "clothes"
 msgstr "clothes"
 
-#: src/containers/TopMenu/TopMenu.js:62
+#: src/Containers/TopMenu/TopMenu.js:62
 msgid "dark mode"
 msgstr "dark mode"
 
-#: src/components/Avatar/utilis/consts.js:26
+#: src/Components/Avatar/utilis/consts.js:26
 msgid "ears"
 msgstr "ears"
 
-#: src/components/Avatar/utilis/consts.js:28
+#: src/Components/Avatar/utilis/consts.js:28
 msgid "eye brows"
 msgstr "eye brows"
 
-#: src/components/Avatar/utilis/consts.js:29
+#: src/Components/Avatar/utilis/consts.js:29
 msgid "eyes"
 msgstr "eyes"
 
-#: src/components/Avatar/utilis/consts.js:33
+#: src/Components/Avatar/utilis/consts.js:33
 msgid "face"
 msgstr "face"
 
@@ -73,15 +73,15 @@ msgstr "face"
 msgid "female"
 msgstr "female"
 
-#: src/components/Avatar/utilis/consts.js:27
+#: src/Components/Avatar/utilis/consts.js:27
 msgid "glasses"
 msgstr "glasses"
 
-#: src/components/Avatar/utilis/consts.js:25
+#: src/Components/Avatar/utilis/consts.js:25
 msgid "hair"
 msgstr "hair"
 
-#: src/containers/TopMenu/TopMenu.js:62
+#: src/Containers/TopMenu/TopMenu.js:62
 msgid "light mode"
 msgstr "light mode"
 
@@ -89,11 +89,11 @@ msgstr "light mode"
 msgid "male"
 msgstr "male"
 
-#: src/components/Avatar/utilis/consts.js:31
+#: src/Components/Avatar/utilis/consts.js:31
 msgid "mouth"
 msgstr "mouth"
 
-#: src/components/Avatar/utilis/consts.js:34
+#: src/Components/Avatar/utilis/consts.js:34
 msgid "neck"
 msgstr "neck"
 
@@ -101,6 +101,6 @@ msgstr "neck"
 msgid "neutral"
 msgstr "neutral"
 
-#: src/components/Avatar/utilis/consts.js:30
+#: src/Components/Avatar/utilis/consts.js:30
 msgid "nose"
 msgstr "nose"
