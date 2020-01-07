@@ -64,8 +64,7 @@
   opacity: 0.1;
 }
 
-.primary-fill,
-.eyes {
+.primary-fill {
   fill: #0a1e28;
 }
 
@@ -85,4 +84,12 @@
 
 .dark-glasses-style {
   fill: url(#Gradient_bez_nazwy_21);
+}
+
+.mouth-inner {
+  fill: #3f0a0f;
+}
+
+.mouth-tongue {
+  fill: #c1272d;
 }

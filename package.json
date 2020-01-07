@@ -1,5 +1,6 @@
 {
   "name": "avatarmaker",
+  "homepage": "https://123web.pl/avatarmaker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
