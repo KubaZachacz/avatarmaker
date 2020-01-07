@@ -69,6 +69,10 @@
   fill: #0a1e28;
 }
 
+.eyes {
+  transition: transform 1s;
+}
+
 .cls-5,
 .glasses-style {
   opacity: 0.5;

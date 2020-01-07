@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setAvatarStyle,
@@ -15,7 +15,8 @@ import {
   DEFAULT_COLORS,
   EDITOR_PARTS_ORDER,
   EDITOR_PARTS_TEXTS,
-  ELEMENTS_BY_GENDER
+  ELEMENTS_BY_GENDER,
+  moveEyesOnClick
 } from "../../Components/Avatar";
 import { randomAvatarByGender as randomAvatar } from "../../Components/Avatar/utilis/randomAvatar";
 import ColorPickerPopper, {
@@ -79,9 +80,6 @@ const useStyles = makeStyles(theme => ({
   saveButton: {
     position: "absolute",
     bottom: 0,
-    // width: "64px !important",
-    // height: "64px !important",
-    // borderRadius: "50% !important",
     right: theme.spacing(1),
     [theme.breakpoints.up("md")]: {
       right: theme.spacing(5)
@@ -105,6 +103,10 @@ const AvatarEditor = props => {
     style: avatarStyle,
     genderFilter
   } = useSelector(state => state.avatar);
+
+  useEffect(()=>{
+    moveEyesOnClick();
+  },[])
 
   const saveNewPartElement = (part, index) => {
     const newAvatarElements = { ...avatarElements };
