@@ -17,51 +17,51 @@ msgstr ""
 #~ msgid "Content goes here"
 #~ msgstr "Treść idzie tutaj"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:188
+#: src/Containers/AvatarEditor/AvatarEditor.js:188
 msgid "Filters:"
 msgstr "Filtry:"
 
-#: src/containers/AvatarEditor/components/GenderFilterRow/GenderFilterRow.js:88
+#: src/Containers/AvatarEditor/Components/GenderFilterRow/GenderFilterRow.js:88
 msgid "Gender:"
 msgstr "Płeć:"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:196
+#: src/Containers/AvatarEditor/AvatarEditor.js:196
 msgid "Modifiers:"
 msgstr "Modyfikatory:"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:206
+#: src/Containers/AvatarEditor/AvatarEditor.js:206
 msgid "RANDOM"
 msgstr "LOSUJ"
 
-#: src/containers/AvatarEditor/AvatarEditor.js:180
+#: src/Containers/AvatarEditor/AvatarEditor.js:180
 msgid "Save as PNG"
 msgstr "Zapisz jako PNG"
 
-#: src/components/Avatar/utilis/consts.js:32
+#: src/Components/Avatar/utilis/consts.js:32
 msgid "beard"
 msgstr "zarost"
 
-#: src/components/Avatar/utilis/consts.js:35
+#: src/Components/Avatar/utilis/consts.js:35
 msgid "clothes"
 msgstr "ubrania"
 
-#: src/containers/TopMenu/TopMenu.js:62
+#: src/Containers/TopMenu/TopMenu.js:62
 msgid "dark mode"
 msgstr "tryb ciemny"
 
-#: src/components/Avatar/utilis/consts.js:26
+#: src/Components/Avatar/utilis/consts.js:26
 msgid "ears"
 msgstr "uszy"
 
-#: src/components/Avatar/utilis/consts.js:28
+#: src/Components/Avatar/utilis/consts.js:28
 msgid "eye brows"
 msgstr "brwi"
 
-#: src/components/Avatar/utilis/consts.js:29
+#: src/Components/Avatar/utilis/consts.js:29
 msgid "eyes"
 msgstr "oczy"
 
-#: src/components/Avatar/utilis/consts.js:33
+#: src/Components/Avatar/utilis/consts.js:33
 msgid "face"
 msgstr "twarz"
 
@@ -69,15 +69,15 @@ msgstr "twarz"
 msgid "female"
 msgstr "żeńska"
 
-#: src/components/Avatar/utilis/consts.js:27
+#: src/Components/Avatar/utilis/consts.js:27
 msgid "glasses"
 msgstr "okulary"
 
-#: src/components/Avatar/utilis/consts.js:25
+#: src/Components/Avatar/utilis/consts.js:25
 msgid "hair"
 msgstr "włosy"
 
-#: src/containers/TopMenu/TopMenu.js:62
+#: src/Containers/TopMenu/TopMenu.js:62
 msgid "light mode"
 msgstr "tryb jasny"
 
@@ -85,11 +85,11 @@ msgstr "tryb jasny"
 msgid "male"
 msgstr "męska"
 
-#: src/components/Avatar/utilis/consts.js:31
+#: src/Components/Avatar/utilis/consts.js:31
 msgid "mouth"
 msgstr "usta"
 
-#: src/components/Avatar/utilis/consts.js:34
+#: src/Components/Avatar/utilis/consts.js:34
 msgid "neck"
 msgstr "szyja"
 
@@ -97,6 +97,6 @@ msgstr "szyja"
 msgid "neutral"
 msgstr "neutralna"
 
-#: src/components/Avatar/utilis/consts.js:30
+#: src/Components/Avatar/utilis/consts.js:30
 msgid "nose"
 msgstr "nos"

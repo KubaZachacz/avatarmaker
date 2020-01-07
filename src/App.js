@@ -10,8 +10,8 @@ import { langCatalogs } from "./locales";
 
 import { DEFAULT_THEME, PALETTE_TYPES } from "./consts";
 import { useEditableTheme } from "./hooks";
-import TopMenu from "./containers/TopMenu";
-import AvatarEditor from "./containers/AvatarEditor";
+import TopMenu from "./Containers/TopMenu";
+import AvatarEditor from "./Containers/AvatarEditor";
 import "./App.css";
 
 const useStyles = makeStyles(theme => ({

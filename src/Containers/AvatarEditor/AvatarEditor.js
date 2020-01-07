@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setAvatarStyle,
@@ -15,12 +15,13 @@ import {
   DEFAULT_COLORS,
   EDITOR_PARTS_ORDER,
   EDITOR_PARTS_TEXTS,
-  ELEMENTS_BY_GENDER
-} from "../../components/Avatar";
-import { randomAvatarByGender as randomAvatar } from "../../components/Avatar/utilis/randomAvatar";
+  ELEMENTS_BY_GENDER,
+  moveEyesOnClick
+} from "../../Components/Avatar";
+import { randomAvatarByGender as randomAvatar } from "../../Components/Avatar/utilis/randomAvatar";
 import ColorPickerPopper, {
   useColorPicker
-} from "../../components/ColorPickerPopper";
+} from "../../Components/ColorPickerPopper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDice } from "@fortawesome/free-solid-svg-icons";
 import { faSave } from "@fortawesome/free-regular-svg-icons";
@@ -29,7 +30,7 @@ import { GENDER_FILTERS } from "../../consts";
 import SvgSaver from "svgsaver";
 import GenderFilterRow from "./components/GenderFilterRow";
 import EditorsLine from "./components/EditorsLine";
-import FabWithTooltip from "../../components/FabWithTooltip";
+import FabWithTooltip from "../../Components/FabWithTooltip";
 
 var svgsaver = new SvgSaver();
 
@@ -79,9 +80,6 @@ const useStyles = makeStyles(theme => ({
   saveButton: {
     position: "absolute",
     bottom: 0,
-    // width: "64px !important",
-    // height: "64px !important",
-    // borderRadius: "50% !important",
     right: theme.spacing(1),
     [theme.breakpoints.up("md")]: {
       right: theme.spacing(5)
@@ -105,6 +103,10 @@ const AvatarEditor = props => {
     style: avatarStyle,
     genderFilter
   } = useSelector(state => state.avatar);
+
+  useEffect(()=>{
+    moveEyesOnClick();
+  },[])
 
   const saveNewPartElement = (part, index) => {
     const newAvatarElements = { ...avatarElements };
