@@ -3,7 +3,8 @@
 }
 .cls-1,
 .contur_2px,
-.contur_1px {
+.contur_1px,
+.contur_15px {
   fill: none;
 }
 
@@ -17,10 +18,15 @@
 }
 
 .contur_2px,
-.contur_1px {
+.contur_1px,
+.contur_15px {
   stroke: #0a1e28;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.contur_15px {
+  stroke-width: 1.5px;
 }
 
 .contur_2px {
@@ -64,11 +70,12 @@
   opacity: 0.1;
 }
 
-.primary-fill {
+.primary-fill,
+.eye-style {
   fill: #0a1e28;
 }
 
-.eyes {
+[data-name="eyes"] {
   transition: transform 1s;
 }
 
