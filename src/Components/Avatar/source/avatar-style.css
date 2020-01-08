@@ -3,8 +3,9 @@
 }
 .cls-1,
 .contur_2px,
+.contur_15px,
 .contur_1px,
-.contur_15px {
+.contur_05px {
   fill: none;
 }
 
@@ -18,11 +19,16 @@
 }
 
 .contur_2px,
+.contur_15px,
 .contur_1px,
-.contur_15px {
+.contur_05px {
   stroke: #0a1e28;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.contur_05px {
+  stroke-width: 0.5px;
 }
 
 .contur_15px {
@@ -104,3 +110,11 @@
 .mouth-tongue {
   fill: #c1272d;
 }
+
+.avatar g {
+  transform-origin: 15% 40%;
+}
+
+/* .avatar g * {
+  stroke: none !important;
+} */

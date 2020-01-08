@@ -79,40 +79,6 @@
       "female": true
     }
   },
-  "beards": {
-    "0": {
-      "male": true,
-      "female": true
-    },
-    "1": {
-      "male": true,
-      "female": false
-    },
-    "2": {
-      "male": true,
-      "female": false
-    },
-    "3": {
-      "male": true,
-      "female": false
-    },
-    "4": {
-      "male": true,
-      "female": false
-    },
-    "5": {
-      "male": true,
-      "female": false
-    },
-    "6": {
-      "male": true,
-      "female": false
-    },
-    "7": {
-      "male": true,
-      "female": false
-    }
-  },
   "mouths": {
     "0": {
       "male": true,
@@ -181,6 +147,52 @@
     "16": {
       "male": false,
       "female": true
+    }
+  },
+  "beards_top": {
+    "0": {
+      "male": true,
+      "female": true
+    },
+    "1": {
+      "male": true,
+      "female": false
+    },
+    "2": {
+      "male": true,
+      "female": false
+    },
+    "3": {
+      "male": true,
+      "female": false
+    },
+    "4": {
+      "male": true,
+      "female": false
+    },
+    "5": {
+      "male": true,
+      "female": false
+    },
+    "6": {
+      "male": true,
+      "female": false
+    },
+    "7": {
+      "male": true,
+      "female": false
+    },
+    "8": {
+      "male": true,
+      "female": false
+    },
+    "9": {
+      "male": true,
+      "female": false
+    },
+    "10": {
+      "male": true,
+      "female": false
     }
   },
   "eyes": {
@@ -287,10 +299,6 @@
       "female": true
     },
     "4": {
-      "male": true,
-      "female": true
-    },
-    "5": {
       "male": true,
       "female": true
     }

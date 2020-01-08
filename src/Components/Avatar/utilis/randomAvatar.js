@@ -1,5 +1,11 @@
 import random from "lodash/random";
-import { PARTS, DEFAULT_COLORS, ELEMENTS_BY_GENDER } from "./consts";
+import {
+  PARTS,
+  DEFAULT_COLORS,
+  ELEMENTS_BY_GENDER,
+  PAIRED_PARTS,
+  EXCLUDED_PARTS
+} from "./consts";
 import sample from "lodash/sample";
 
 export const randomAvatarBySource = source => {
@@ -8,7 +14,8 @@ export const randomAvatarBySource = source => {
   for (let part of PARTS) {
     const value = sample(source[part]);
     elements[part] = value;
-    if (part === "hair_top") elements["hair_back"] = value;
+    if (Object.keys(PAIRED_PARTS).includes(part))
+      elements[PAIRED_PARTS[part]] = value;
     const styleArr = DEFAULT_COLORS[part] || DEFAULT_COLORS.general;
     const styleId = random(0, styleArr.length - 1);
     style[part] = styleArr[styleId];

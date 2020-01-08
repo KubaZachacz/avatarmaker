@@ -21,6 +21,13 @@ export const PART_STYLE_MAP = {
   // mouths: "female_mouth_style"
 };
 
+export const PAIRED_PARTS = {
+  hair_top: "hair_back",
+  beards_top: "beards_bottom"
+};
+
+export const EXCLUDED_PARTS = Object.values(PAIRED_PARTS);
+
 export const EDITOR_PARTS_TEXTS = {
   hair_top: t`hair`,
   ears: t`ears`,
@@ -30,6 +37,7 @@ export const EDITOR_PARTS_TEXTS = {
   noses: t`nose`,
   mouths: t`mouth`,
   beards: t`beard`,
+  beards_top: t`beard`,
   faces: t`face`,
   necks: t`neck`,
   clothes: t`clothes`
@@ -43,7 +51,7 @@ export const EDITOR_PARTS_ORDER = [
   "eyes",
   "noses",
   "mouths",
-  "beards",
+  "beards_top",
   "faces",
   "necks",
   "clothes"

@@ -16,6 +16,8 @@ import {
   EDITOR_PARTS_ORDER,
   EDITOR_PARTS_TEXTS,
   ELEMENTS_BY_GENDER,
+  PAIRED_PARTS,
+  EXCLUDED_PARTS,
   moveEyesOnClick
 } from "../../Components/Avatar";
 import { randomAvatarByGender as randomAvatar } from "../../Components/Avatar/utilis/randomAvatar";
@@ -32,6 +34,7 @@ import GenderFilterRow from "./components/GenderFilterRow";
 import EditorsLine from "./components/EditorsLine";
 import FabWithTooltip from "../../Components/FabWithTooltip";
 import clsx from "clsx";
+import anime from "animejs";
 
 var svgsaver = new SvgSaver();
 
@@ -117,12 +120,33 @@ const AvatarEditor = props => {
 
   useEffect(() => {
     moveEyesOnClick();
+    anime({
+      targets: [
+        "#hair_back",
+        "#hair_top",
+        "#faces",
+        "#ears",
+        "#mouths",
+        "#beards_top",
+        "#beards_bottom",
+        "#eyes",
+        "#noses",
+        "#eye_brows",
+        "#glasses"
+      ],
+      rotate: [2, -2],
+      duration: 7000,
+      loop: true,
+      direction: "alternate",
+      delay: 3000
+    });
   }, []);
 
   const saveNewPartElement = (part, index) => {
     const newAvatarElements = { ...avatarElements };
     newAvatarElements[part] = index;
-    if (part === "hair_top") newAvatarElements["hair_back"] = index;
+    if (Object.keys(PAIRED_PARTS).includes(part))
+      newAvatarElements[PAIRED_PARTS[part]] = index;
 
     dispatch(setAvatarElements(newAvatarElements));
   };
@@ -162,7 +186,7 @@ const AvatarEditor = props => {
 
   const editLinesArray = EDITOR_PARTS_ORDER.map(part => {
     return (
-      part !== "hair_back" && (
+      !EXCLUDED_PARTS.includes(part) && (
         <EditorsLine
           key={`config-${part}`}
           part={part}
