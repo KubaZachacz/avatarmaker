@@ -31,6 +31,7 @@ import SvgSaver from "svgsaver";
 import GenderFilterRow from "./components/GenderFilterRow";
 import EditorsLine from "./components/EditorsLine";
 import FabWithTooltip from "../../Components/FabWithTooltip";
+import clsx from "clsx";
 
 var svgsaver = new SvgSaver();
 
@@ -48,6 +49,10 @@ const useStyles = makeStyles(theme => ({
   },
   column: {
     width: "100%"
+  },
+  flex: {
+    display: "flex",
+    flexDirection: "column"
   },
   avatarWrapper: {
     width: "90%",
@@ -84,6 +89,12 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("md")]: {
       right: theme.spacing(5)
     }
+  },
+  reodrder: {
+    order: -1,
+    [theme.breakpoints.up("md")]: {
+      order: "initial"
+    }
   }
 }));
 
@@ -104,9 +115,9 @@ const AvatarEditor = props => {
     genderFilter
   } = useSelector(state => state.avatar);
 
-  useEffect(()=>{
+  useEffect(() => {
     moveEyesOnClick();
-  },[])
+  }, []);
 
   const saveNewPartElement = (part, index) => {
     const newAvatarElements = { ...avatarElements };
@@ -185,29 +196,35 @@ const AvatarEditor = props => {
           </FabWithTooltip>
         </div>
       </div>
-      <div className={classes.column}>
-        <Typography variant="h6">
-          <Trans>Filters:</Trans>
-        </Typography>
-        <GenderFilterRow
-          {...{ genderFilter }}
-          onChange={gender => dispatch(toggleGenderFilter(gender))}
-        />
-        <Divider className={classes.divider} />
-        <Typography variant="h6">
-          <Trans>Modifiers:</Trans>
-        </Typography>
-        {editLinesArray}
-        <Divider className={classes.divider} />
-        <Button
-          variant="contained"
-          color="primary"
-          className={classes.Random}
-          onClick={randomHandler}
-        >
-          <Trans>RANDOM</Trans>&nbsp;
-          <FontAwesomeIcon icon={faDice} size="lg" />
-        </Button>
+      <div className={clsx(classes.column, classes.flex)}>
+        <div className={classes.reodrder}>
+          <Typography variant="h6">
+            <Trans>Filters:</Trans>
+          </Typography>
+          <GenderFilterRow
+            {...{ genderFilter }}
+            onChange={gender => dispatch(toggleGenderFilter(gender))}
+          />
+        </div>
+        <div className={classes.columnGroup}>
+          <Divider className={classes.divider} />
+          <Typography variant="h6">
+            <Trans>Modifiers:</Trans>
+          </Typography>
+          {editLinesArray}
+        </div>
+        <div className={clsx(classes.columnGroup, classes.reodrder)}>
+          <Divider className={classes.divider} />
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.Random}
+            onClick={randomHandler}
+          >
+            <Trans>RANDOM</Trans>&nbsp;
+            <FontAwesomeIcon icon={faDice} size="lg" />
+          </Button>
+        </div>
         <ColorPickerPopper
           {...{ anchorEl }}
           onClickAway={() => setOpenedPart(null)}
