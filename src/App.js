@@ -3,15 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { setLanguage, toggleDarkMode } from "./store/slices/settingsSlice";
 import { makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-import { Paper, Toolbar } from "@material-ui/core";
+import { Paper, Toolbar, Button } from "@material-ui/core";
 import { I18nProvider } from "@lingui/react";
-// import { Trans } from "@lingui/macro";
 import { langCatalogs } from "./locales";
-
 import { DEFAULT_THEME, PALETTE_TYPES } from "./consts";
 import { useEditableTheme } from "./hooks";
 import TopMenu from "./Containers/TopMenu";
 import AvatarEditor from "./Containers/AvatarEditor";
+import CookieBanner from "./Components/CookieBanner";
 import "./App.css";
 
 const useStyles = makeStyles(theme => ({
@@ -62,6 +61,7 @@ function App() {
           <Toolbar />
           <AvatarEditor />
         </Paper>
+        <CookieBanner />
       </ThemeProvider>
     </I18nProvider>
   );
