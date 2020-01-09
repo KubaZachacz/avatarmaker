@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useMemo } from "react";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLightbulb as offDarkModeIcon } from "@fortawesome/free-solid-svg-icons";
-import { faLightbulb as onDarkModeIcon } from "@fortawesome/free-regular-svg-icons";
+import {
+  faLightbulb as offDarkModeIcon,
+  faQuestionCircle as closeInfoIcon
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faLightbulb as onDarkModeIcon,
+  faQuestionCircle as openInfoIcon
+} from "@fortawesome/free-regular-svg-icons";
 import { langCatalogs } from "../../locales";
 import { LANG_FLAG_CODES } from "../../consts";
 import { FlagIcon } from "react-flag-kit";
@@ -49,15 +56,36 @@ const useStyles = makeStyles(theme => ({
   flag: {
     verticalAlign: "middle"
   },
-  lightModeIcon: {
+  iconButton: {
     width: 44
   }
 }));
 
-const TopMenu = ({ onToggleDarkMode, isDarkMode, lang, onChageLanguage }) => {
+export const InfoButton = ({ isInfo, onOpenInfo }) => {
   const classes = useStyles();
 
-  const lightModeIcon = (
+  return (
+    <Tooltip title={<Trans>More info</Trans>}>
+      <IconButton
+        aria-label="more info"
+        onClick={onOpenInfo}
+        variant="extended"
+        className={classes.iconButton}
+      >
+        {isInfo ? (
+          <FontAwesomeIcon icon={closeInfoIcon} className={classes.icon} />
+        ) : (
+          <FontAwesomeIcon icon={openInfoIcon} className={classes.icon} />
+        )}
+      </IconButton>
+    </Tooltip>
+  );
+};
+
+export const LightModeButton = ({ isDarkMode, onToggleDarkMode }) => {
+  const classes = useStyles();
+
+  return (
     <Tooltip
       title={isDarkMode ? <Trans>light mode</Trans> : <Trans>dark mode</Trans>}
     >
@@ -65,7 +93,7 @@ const TopMenu = ({ onToggleDarkMode, isDarkMode, lang, onChageLanguage }) => {
         aria-label="light mode"
         onClick={() => onToggleDarkMode(!isDarkMode)}
         variant="extended"
-        className={classes.lightModeIcon}
+        className={classes.iconButton}
       >
         {isDarkMode ? (
           <FontAwesomeIcon icon={offDarkModeIcon} className={classes.icon} />
@@ -75,26 +103,39 @@ const TopMenu = ({ onToggleDarkMode, isDarkMode, lang, onChageLanguage }) => {
       </IconButton>
     </Tooltip>
   );
+};
 
-  const LanguageSelect = () => {
-    const langsOptionsArray = languagesList.map(lang => (
-      <MenuItem key={`lang-option-${lang}`} value={lang}>
-        <FlagIcon code={LANG_FLAG_CODES[lang]} className={classes.flag} />
-      </MenuItem>
-    ));
+export const LanguageSelect = ({ lang, onChageLanguage }) => {
+  const classes = useStyles();
 
-    return (
-      <Select
-        value={lang}
-        onChange={event => onChageLanguage(event.target.value)}
-        size="small"
-        disableUnderline={true}
-        classes={{ icon: classes.customSelect }}
-      >
-        {langsOptionsArray}
-      </Select>
-    );
-  };
+  const langsOptionsArray = languagesList.map(lang => (
+    <MenuItem key={`lang-option-${lang}`} value={lang}>
+      <FlagIcon code={LANG_FLAG_CODES[lang]} className={classes.flag} />
+    </MenuItem>
+  ));
+
+  return (
+    <Select
+      value={lang}
+      onChange={event => onChageLanguage(event.target.value)}
+      size="small"
+      disableUnderline={true}
+      classes={{ icon: classes.customSelect }}
+    >
+      {langsOptionsArray}
+    </Select>
+  );
+};
+
+const TopMenu = ({
+  onToggleDarkMode,
+  isDarkMode,
+  lang,
+  onChageLanguage,
+  isInfo,
+  onOpenInfo
+}) => {
+  const classes = useStyles();
 
   return (
     <AppBar color="primary" className={classes.root}>
@@ -104,13 +145,23 @@ const TopMenu = ({ onToggleDarkMode, isDarkMode, lang, onChageLanguage }) => {
             <Typography variant="h6">Avatar Maker</Typography>
           </Box>
           <Box className={classes.menuButtons}>
-            <LanguageSelect />
-            {lightModeIcon}
+            <LanguageSelect {...{ lang, onChageLanguage }} />
+            <LightModeButton {...{ onToggleDarkMode, isDarkMode }} />
+            <InfoButton {...{ onOpenInfo, isInfo }} />
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
   );
+};
+
+TopMenu.propTypes = {
+  onToggleDarkMode: PropTypes.func.isRequired,
+  isDarkMode: PropTypes.bool.isRequired,
+  lang: PropTypes.string.isRequired,
+  onChageLanguage: PropTypes.func.isRequired,
+  isInfo: PropTypes.bool.isRequired,
+  onOpenInfo: PropTypes.func.isRequired
 };
 
 export default TopMenu;
