@@ -121,6 +121,7 @@ export const LanguageSelect = ({ lang, onChageLanguage }) => {
       size="small"
       disableUnderline={true}
       classes={{ icon: classes.customSelect }}
+      data-testid="lang-select"
     >
       {langsOptionsArray}
     </Select>
