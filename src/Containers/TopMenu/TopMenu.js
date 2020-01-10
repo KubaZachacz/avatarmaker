@@ -65,7 +65,7 @@ export const InfoButton = ({ isInfo, onOpenInfo }) => {
   const classes = useStyles();
 
   return (
-    <Tooltip title={<Trans>More info</Trans>}>
+    <Tooltip title={<Trans>Project info</Trans>}>
       <IconButton
         aria-label="more info"
         onClick={onOpenInfo}
@@ -87,7 +87,7 @@ export const LightModeButton = ({ isDarkMode, onToggleDarkMode }) => {
 
   return (
     <Tooltip
-      title={isDarkMode ? <Trans>light mode</Trans> : <Trans>dark mode</Trans>}
+      title={isDarkMode ? <Trans>Light mode</Trans> : <Trans>Dark mode</Trans>}
     >
       <IconButton
         aria-label="light mode"

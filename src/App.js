@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLanguage, toggleDarkMode } from "./store/slices/settingsSlice";
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,7 +10,8 @@ import { DEFAULT_THEME, PALETTE_TYPES } from "./consts";
 import { useEditableTheme } from "./hooks";
 import TopMenu from "./Containers/TopMenu";
 import AvatarEditor from "./Containers/AvatarEditor";
-import CookieBanner from "./Components/CookieBanner";
+import CookieBanner from "./Containers/CookieBanner";
+import InfoModal from "./Containers/InfoModal";
 import "./App.css";
 
 const useStyles = makeStyles(theme => ({
@@ -23,6 +24,8 @@ const useStyles = makeStyles(theme => ({
 function App() {
   const classes = useStyles();
   const dispatch = useDispatch();
+
+  const [isInfoModal, setIsInfoModal] = useState(false);
 
   const { isDarkMode, lang } = useSelector(state => state.settings);
   const initialTheme = {
@@ -56,11 +59,22 @@ function App() {
       <ThemeProvider theme={theme}>
         <Paper className={classes.Paper} square={true}>
           <TopMenu
-            {...{ onToggleDarkMode, onChageLanguage, isDarkMode, lang }}
+            {...{
+              onToggleDarkMode,
+              onChageLanguage,
+              isDarkMode,
+              lang,
+              isInfo: isInfoModal
+            }}
+            onOpenInfo={() => setIsInfoModal(true)}
           />
           <Toolbar />
           <AvatarEditor />
         </Paper>
+        <InfoModal
+          isOpen={isInfoModal}
+          handleClose={() => setIsInfoModal(false)}
+        />
         <CookieBanner />
       </ThemeProvider>
     </I18nProvider>
