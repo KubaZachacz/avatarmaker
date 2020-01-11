@@ -5,13 +5,14 @@ import {
   setAvatarElements,
   toggleGenderFilter
 } from "../../store/slices/avatarSlice";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import {
   Typography,
   Button,
   Divider,
   Container,
-  useScrollTrigger
+  useScrollTrigger,
+  useMediaQuery
 } from "@material-ui/core";
 import {
   Avatar,
@@ -24,7 +25,8 @@ import {
   ELEMENTS_BY_GENDER,
   PAIRED_PARTS,
   EXCLUDED_PARTS,
-  moveEyesOnClick
+  moveEyesOnClick,
+  animateHead
 } from "../../Components/Avatar";
 import { randomAvatarByGender as randomAvatar } from "../../Components/Avatar/utilis/randomAvatar";
 import ColorPickerPopper, {
@@ -40,7 +42,6 @@ import GenderFilterRow from "./components/GenderFilterRow";
 import EditorsLine from "./components/EditorsLine";
 import FabWithTooltip from "../../Components/FabWithTooltip";
 import clsx from "clsx";
-import anime from "animejs";
 
 var svgsaver = new SvgSaver();
 
@@ -156,27 +157,11 @@ const AvatarEditor = ({ window }) => {
 
   useEffect(() => {
     moveEyesOnClick();
-    anime({
-      targets: [
-        "#hair_back",
-        "#hair_top",
-        "#faces",
-        "#ears",
-        "#mouths",
-        "#beards_top",
-        "#beards_bottom",
-        "#eyes",
-        "#noses",
-        "#eye_brows",
-        "#glasses"
-      ],
-      rotate: [2, -2],
-      duration: 7000,
-      loop: true,
-      direction: "alternate",
-      delay: 3000
-    });
+    animateHead();
   }, []);
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const saveNewPartElement = (part, index) => {
     const newAvatarElements = { ...avatarElements };
@@ -243,7 +228,7 @@ const AvatarEditor = ({ window }) => {
       <div className={clsx(classes.column, classes.avatarColumn)}>
         <div
           className={classes.avatarWrapper}
-          {...(isScrolled && { style: SCROLLED_STYLE })}
+          {...(isScrolled && isMobile && { style: SCROLLED_STYLE })}
         >
           <Avatar
             {...{ avatarElements, avatarStyle }}

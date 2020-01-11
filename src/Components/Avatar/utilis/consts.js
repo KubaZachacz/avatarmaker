@@ -57,6 +57,20 @@ export const EDITOR_PARTS_ORDER = [
   "clothes"
 ];
 
+export const HEAD_PARTS = [
+  "#hair_back",
+  "#hair_top",
+  "#faces",
+  "#ears",
+  "#mouths",
+  "#beards_top",
+  "#beards_bottom",
+  "#eyes",
+  "#noses",
+  "#eye_brows",
+  "#glasses"
+];
+
 export const DEFAULT_COLORS = {
   faces: ["#f0beb4", "#f0d0b4", "#b5917c", "#6e554b"],
   hair_top: [

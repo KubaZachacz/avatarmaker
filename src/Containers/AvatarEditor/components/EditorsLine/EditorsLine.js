@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     margin: "0 auto",
     display: "flex",
     alignItems: "center",
-    minWidth: 310
+    minWidth: 300
   },
   text: {
     display: "flex",
