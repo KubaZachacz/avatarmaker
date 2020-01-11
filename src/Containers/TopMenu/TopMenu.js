@@ -61,7 +61,10 @@ const useStyles = makeStyles(theme => ({
     width: 44
   },
   logo: {
-    fontSize: "1.5rem"
+    fontSize: "1.2rem",
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "1.5rem"
+    }
   }
 }));
 

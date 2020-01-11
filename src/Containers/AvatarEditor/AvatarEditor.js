@@ -71,7 +71,7 @@ const useStyles = makeStyles(theme => ({
     opacity: 0.1
   },
   Avatar: {
-    maxHeight: 350,
+    maxHeight: 320,
     [theme.breakpoints.up("md")]: {
       maxHeight: 490
     }
@@ -97,6 +97,12 @@ const useStyles = makeStyles(theme => ({
     order: -1,
     [theme.breakpoints.up("md")]: {
       order: "initial"
+    }
+  },
+  modifiers: {
+    marginBottom: theme.spacing(3),
+    [theme.breakpoints.up("sm")]: {
+      marginBottom: "initial"
     }
   }
 }));
@@ -230,7 +236,7 @@ const AvatarEditor = props => {
             onChange={gender => dispatch(toggleGenderFilter(gender))}
           />
         </div>
-        <div className={classes.columnGroup}>
+        <div className={clsx(classes.columnGroup, classes.modifiers)}>
           <Divider className={classes.divider} />
           <Typography variant="h6">
             <Trans>Modifiers:</Trans>
