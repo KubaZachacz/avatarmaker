@@ -25,6 +25,7 @@ import {
   MenuItem
 } from "@material-ui/core";
 import { Trans } from "@lingui/macro";
+import Logo from "../../Components/Logo";
 
 const languagesList = Object.keys(langCatalogs);
 
@@ -58,6 +59,9 @@ const useStyles = makeStyles(theme => ({
   },
   iconButton: {
     width: 44
+  },
+  logo: {
+    fontSize: "1.5rem"
   }
 }));
 
@@ -143,7 +147,9 @@ const TopMenu = ({
       <Container maxWidth="lg">
         <Toolbar className={classes.toolbar}>
           <Box className={classes.logoContainer}>
-            <Typography variant="h6">Avatar Maker</Typography>
+            <Typography variant="h6" className={classes.logo}>
+              <Logo />
+            </Typography>
           </Box>
           <Box className={classes.menuButtons}>
             <LanguageSelect {...{ lang, onChageLanguage }} />

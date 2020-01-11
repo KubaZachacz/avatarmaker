@@ -8,6 +8,7 @@ import {
   Container
 } from "@material-ui/core";
 import { Avatar } from "../../Components/Avatar";
+import Logo from "../../Components/Logo";
 import { Trans } from "@lingui/macro";
 import { MY_AVATAR } from "../../consts";
 
@@ -23,8 +24,7 @@ const useStyles = makeStyles(theme => ({
     overflow: "auto"
   },
   title: {
-    marginBottom: theme.spacing(2),
-    fontVariant: "small-caps"
+    marginBottom: theme.spacing(2)
   },
   paragaph: {
     marginTop: theme.spacing(2),
@@ -60,7 +60,7 @@ const InfoModal = ({ isOpen, handleClose }) => {
       <Paper className={classes.paper}>
         <Container maxWidth="lg">
           <Typography align="center" variant="h4" className={classes.title}>
-            Avatar Maker
+            <Logo />
           </Typography>
           <Divider />
           <Typography className={classes.paragaph}>

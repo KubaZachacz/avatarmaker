@@ -12,7 +12,6 @@ import TopMenu from "./Containers/TopMenu";
 import AvatarEditor from "./Containers/AvatarEditor";
 import CookieBanner from "./Containers/CookieBanner";
 import InfoModal from "./Containers/InfoModal";
-import "./App.css";
 
 const useStyles = makeStyles(theme => ({
   Paper: {
@@ -25,7 +24,7 @@ function App() {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const [isInfoModal, setIsInfoModal] = useState(true);
+  const [isInfoModal, setIsInfoModal] = useState(false);
 
   const { isDarkMode, lang } = useSelector(state => state.settings);
   const initialTheme = {
