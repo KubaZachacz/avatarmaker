@@ -13,11 +13,23 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/Containers/InfoModal/InfoModal.js:67
+msgid "Avatar Maker is a self made, showcase project, which is going to be a part of something way much bigger soon.<0/>✨ Stay tuned! ✨<1/>But for now feel free to generate and save your avatars and have fun! 😄"
+msgstr "Avatar Maker is a self made, showcase project, which is going to be a part of something way much bigger soon.<0/>✨ Stay tuned! ✨<1/>But for now feel free to generate and save your avatars and have fun! 😄"
+
+#: src/Containers/InfoModal/InfoModal.js:86
+msgid "Contanct:"
+msgstr "Contanct:"
+
 #: src/App.js:48
 #~ msgid "Content goes here"
 #~ msgstr "Content goes here"
 
-#: src/Containers/AvatarEditor/AvatarEditor.js:188
+#: src/Containers/TopMenu/TopMenu.js:97
+msgid "Dark mode"
+msgstr "Dark mode"
+
+#: src/Containers/AvatarEditor/AvatarEditor.js:232
 msgid "Filters:"
 msgstr "Filters:"
 
@@ -25,47 +37,68 @@ msgstr "Filters:"
 #~ msgid "Gender filter:"
 #~ msgstr "Gender filter:"
 
-#: src/Containers/AvatarEditor/Components/GenderFilterRow/GenderFilterRow.js:88
+#: src/Containers/AvatarEditor/components/GenderFilterRow/GenderFilterRow.js:88
 msgid "Gender:"
 msgstr "Gender:"
 
-#: src/Containers/AvatarEditor/AvatarEditor.js:196
+#: src/Containers/TopMenu/TopMenu.js:97
+msgid "Light mode"
+msgstr "Light mode"
+
+#: src/Containers/AvatarEditor/AvatarEditor.js:242
 msgid "Modifiers:"
 msgstr "Modifiers:"
 
-#: src/Containers/AvatarEditor/AvatarEditor.js:206
+#: src/Containers/CookieBanner/CookieBanner.js:26
+msgid "OK, I understand"
+msgstr "OK, I understand"
+
+#: src/Containers/TopMenu/TopMenu.js:75
+msgid "Project info"
+msgstr "Project info"
+
+#: src/Containers/InfoModal/InfoModal.js:78
+msgid "Project's repository with detailed description:"
+msgstr "Project's repository with detailed description:"
+
+#: src/Containers/AvatarEditor/AvatarEditor.js:254
 msgid "RANDOM"
 msgstr "RANDOM"
 
-#: src/Containers/AvatarEditor/AvatarEditor.js:180
+#: src/Containers/AvatarEditor/AvatarEditor.js:223
 msgid "Save as PNG"
 msgstr "Save as PNG"
 
-#: src/Components/Avatar/utilis/consts.js:32
+#: src/Containers/CookieBanner/CookieBanner.js:31
+msgid "This website uses cookies for analytics and to enhance the user experience."
+msgstr "This website uses cookies for analytics and to enhance the user experience."
+
+#: src/Components/Avatar/utilis/consts.js:39
+#: src/Components/Avatar/utilis/consts.js:40
 msgid "beard"
 msgstr "beard"
 
-#: src/Components/Avatar/utilis/consts.js:35
+#: src/Components/Avatar/utilis/consts.js:43
 msgid "clothes"
 msgstr "clothes"
 
 #: src/Containers/TopMenu/TopMenu.js:62
-msgid "dark mode"
-msgstr "dark mode"
+#~ msgid "dark mode"
+#~ msgstr "dark mode"
 
-#: src/Components/Avatar/utilis/consts.js:26
+#: src/Components/Avatar/utilis/consts.js:33
 msgid "ears"
 msgstr "ears"
 
-#: src/Components/Avatar/utilis/consts.js:28
+#: src/Components/Avatar/utilis/consts.js:35
 msgid "eye brows"
 msgstr "eye brows"
 
-#: src/Components/Avatar/utilis/consts.js:29
+#: src/Components/Avatar/utilis/consts.js:36
 msgid "eyes"
 msgstr "eyes"
 
-#: src/Components/Avatar/utilis/consts.js:33
+#: src/Components/Avatar/utilis/consts.js:41
 msgid "face"
 msgstr "face"
 
@@ -73,27 +106,27 @@ msgstr "face"
 msgid "female"
 msgstr "female"
 
-#: src/Components/Avatar/utilis/consts.js:27
+#: src/Components/Avatar/utilis/consts.js:34
 msgid "glasses"
 msgstr "glasses"
 
-#: src/Components/Avatar/utilis/consts.js:25
+#: src/Components/Avatar/utilis/consts.js:32
 msgid "hair"
 msgstr "hair"
 
 #: src/Containers/TopMenu/TopMenu.js:62
-msgid "light mode"
-msgstr "light mode"
+#~ msgid "light mode"
+#~ msgstr "light mode"
 
 #: src/consts/index.js:27
 msgid "male"
 msgstr "male"
 
-#: src/Components/Avatar/utilis/consts.js:31
+#: src/Components/Avatar/utilis/consts.js:38
 msgid "mouth"
 msgstr "mouth"
 
-#: src/Components/Avatar/utilis/consts.js:34
+#: src/Components/Avatar/utilis/consts.js:42
 msgid "neck"
 msgstr "neck"
 
@@ -101,6 +134,6 @@ msgstr "neck"
 msgid "neutral"
 msgstr "neutral"
 
-#: src/Components/Avatar/utilis/consts.js:30
+#: src/Components/Avatar/utilis/consts.js:37
 msgid "nose"
 msgstr "nose"
