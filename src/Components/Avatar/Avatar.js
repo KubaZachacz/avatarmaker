@@ -12,7 +12,7 @@ import {
 
 import "./source/avatar-style.css";
 
-const Avatar = ({ className, avatarElements, avatarStyle }) => {
+const Avatar = ({ className, avatarElements, avatarStyle, style }) => {
   const avatar = useMemo(
     () =>
       PARTS.map(part => ReactHtmlParser(avatarSrc[part][avatarElements[part]])),
@@ -36,6 +36,7 @@ const Avatar = ({ className, avatarElements, avatarStyle }) => {
       viewBox="0 0 110 150"
       {...css(avatarStyleObject)}
       id="avatar"
+      {...{ style }}
     >
       <FaceGradient />
       <GlassesGradient />

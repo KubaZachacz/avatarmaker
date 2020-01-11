@@ -15,8 +15,8 @@ import InfoModal from "./Containers/InfoModal";
 
 const useStyles = makeStyles(theme => ({
   Paper: {
-    minHeight: "100vh",
-    overflow: "hidden"
+    minHeight: "100vh"
+    // overflow: "hidden"
   }
 }));
 

@@ -6,7 +6,13 @@ import {
   toggleGenderFilter
 } from "../../store/slices/avatarSlice";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Button, Divider, Container } from "@material-ui/core";
+import {
+  Typography,
+  Button,
+  Divider,
+  Container,
+  useScrollTrigger
+} from "@material-ui/core";
 import {
   Avatar,
   AVATAR_CONFIG,
@@ -38,6 +44,11 @@ import anime from "animejs";
 
 var svgsaver = new SvgSaver();
 
+const SCROLLED_STYLE = {
+  height: 160,
+  borderBottom: "2px solid rgba(50,50,50,0.4)"
+};
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
@@ -60,7 +71,12 @@ const useStyles = makeStyles(theme => ({
   avatarWrapper: {
     width: "90%",
     margin: "0 auto",
-    position: "relative"
+    position: "relative",
+    height: 320,
+    transition: "all 0.3s",
+    [theme.breakpoints.up("md")]: {
+      height: 490
+    }
   },
   photoFrame: {
     position: "absolute",
@@ -71,10 +87,9 @@ const useStyles = makeStyles(theme => ({
     opacity: 0.1
   },
   Avatar: {
-    maxHeight: 320,
-    [theme.breakpoints.up("md")]: {
-      maxHeight: 490
-    }
+    height: "100%",
+    display: "block",
+    margin: "0 auto"
   },
   Random: {
     width: "100%",
@@ -104,10 +119,19 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("sm")]: {
       marginBottom: "initial"
     }
+  },
+  avatarColumn: {
+    position: "sticky",
+    top: 56,
+    zIndex: 99,
+    background: theme.palette.type === "dark" ? "#424242" : "#FFFFFF",
+    outline: `1px solid ${
+      theme.palette.type === "dark" ? "#424242" : "#FFFFFF"
+    }`
   }
 }));
 
-const AvatarEditor = props => {
+const AvatarEditor = ({ window }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -123,6 +147,12 @@ const AvatarEditor = props => {
     style: avatarStyle,
     genderFilter
   } = useSelector(state => state.avatar);
+
+  let isScrolled = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 10,
+    target: window ? window() : undefined
+  });
 
   useEffect(() => {
     moveEyesOnClick();
@@ -210,8 +240,11 @@ const AvatarEditor = props => {
 
   return (
     <Container maxWidth="lg" className={classes.root}>
-      <div className={classes.column}>
-        <div className={classes.avatarWrapper}>
+      <div className={clsx(classes.column, classes.avatarColumn)}>
+        <div
+          className={classes.avatarWrapper}
+          {...(isScrolled && { style: SCROLLED_STYLE })}
+        >
           <Avatar
             {...{ avatarElements, avatarStyle }}
             className={classes.Avatar}
