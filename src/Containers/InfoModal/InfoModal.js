@@ -78,7 +78,11 @@ const InfoModal = ({ isOpen, handleClose }) => {
             <Trans>Project's repository with detailed description:</Trans>
             <br />
             &#128073;
-            <a href="https://github.com/KubaZachacz/avatarmaker">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/KubaZachacz/avatarmaker"
+            >
               https://github.com/KubaZachacz/avatarmaker
             </a>
           </Typography>
@@ -86,7 +90,13 @@ const InfoModal = ({ isOpen, handleClose }) => {
             <Trans>Contanct:</Trans>
             <br />
             &#128073;
-            <a href="mailo:zachacz.jakub@gmail.com">zachacz.jakub@gmail.com </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="mailo:zachacz.jakub@gmail.com"
+            >
+              zachacz.jakub@gmail.com{" "}
+            </a>
           </Typography>
           <Avatar
             avatarElements={MY_AVATAR.elements}
