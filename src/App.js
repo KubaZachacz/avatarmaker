@@ -25,7 +25,7 @@ function App() {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const [isInfoModal, setIsInfoModal] = useState(false);
+  const [isInfoModal, setIsInfoModal] = useState(true);
 
   const { isDarkMode, lang } = useSelector(state => state.settings);
   const initialTheme = {
