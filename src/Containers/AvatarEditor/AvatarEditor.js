@@ -75,6 +75,7 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     height: 320,
     transition: "all 0.3s",
+    borderBottom: "2px solid transparent",
     [theme.breakpoints.up("md")]: {
       height: 490
     }
@@ -125,10 +126,7 @@ const useStyles = makeStyles(theme => ({
     position: "sticky",
     top: 56,
     zIndex: 99,
-    background: theme.palette.type === "dark" ? "#424242" : "#FFFFFF",
-    outline: `1px solid ${
-      theme.palette.type === "dark" ? "#424242" : "#FFFFFF"
-    }`
+    background: theme.palette.type === "dark" ? "#424242" : "#FFFFFF"
   }
 }));
 
@@ -151,7 +149,7 @@ const AvatarEditor = ({ window }) => {
 
   let isScrolled = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 10,
+    threshold: 0,
     target: window ? window() : undefined
   });
 

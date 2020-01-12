@@ -2,7 +2,7 @@
 
 #### It is a self made, showcase project, which is made to practice my new favourite stack. It ain't much, but it's honest work. It's going to be a part of something way much bigger soon. Stay tuned!
 
-##[Try Avatar Maker!](https://123web.pl/avatarmaker "Avatar Maker")
+[Try Avatar Maker!](https://123web.pl/avatarmaker "Avatar Maker")
 
 ![Page preview](https://123web.pl/avatarmaker/preview.png)
 
