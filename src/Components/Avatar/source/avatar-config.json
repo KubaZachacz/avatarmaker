@@ -1,0 +1,364 @@
+{
+  "necks": {
+    "0": {
+      "male": false,
+      "female": true
+    },
+    "1": {
+      "male": true,
+      "female": false
+    },
+    "2": {
+      "male": true,
+      "female": true
+    }
+  },
+  "clothes": {
+    "0": {
+      "male": true,
+      "female": false
+    },
+    "1": {
+      "male": true,
+      "female": true
+    },
+    "2": {
+      "male": true,
+      "female": false
+    },
+    "3": {
+      "male": true,
+      "female": true
+    },
+    "4": {
+      "male": false,
+      "female": true
+    },
+    "5": {
+      "male": false,
+      "female": true
+    },
+    "6": {
+      "male": false,
+      "female": true
+    }
+  },
+  "ears": {
+    "0": {
+      "male": true,
+      "female": true
+    },
+    "1": {
+      "male": true,
+      "female": true
+    },
+    "2": {
+      "male": true,
+      "female": true
+    }
+  },
+  "faces": {
+    "0": {
+      "male": true,
+      "female": false
+    },
+    "1": {
+      "male": true,
+      "female": false
+    },
+    "2": {
+      "male": true,
+      "female": true
+    },
+    "3": {
+      "male": true,
+      "female": true
+    },
+    "4": {
+      "male": false,
+      "female": true
+    }
+  },
+  "mouths": {
+    "0": {
+      "male": true,
+      "female": true
+    },
+    "1": {
+      "male": true,
+      "female": false
+    },
+    "2": {
+      "male": true,
+      "female": true
+    },
+    "3": {
+      "male": true,
+      "female": true
+    },
+    "4": {
+      "male": true,
+      "female": false
+    },
+    "5": {
+      "male": true,
+      "female": true
+    },
+    "6": {
+      "male": true,
+      "female": true
+    },
+    "7": {
+      "male": true,
+      "female": true
+    },
+    "8": {
+      "male": true,
+      "female": true
+    },
+    "9": {
+      "male": true,
+      "female": true
+    },
+    "10": {
+      "male": false,
+      "female": true
+    },
+    "11": {
+      "male": true,
+      "female": true
+    },
+    "12": {
+      "male": true,
+      "female": true
+    },
+    "13": {
+      "male": true,
+      "female": true
+    },
+    "14": {
+      "male": false,
+      "female": true
+    },
+    "15": {
+      "male": false,
+      "female": true
+    },
+    "16": {
+      "male": false,
+      "female": true
+    }
+  },
+  "beards_top": {
+    "0": {
+      "male": true,
+      "female": true
+    },
+    "1": {
+      "male": true,
+      "female": false
+    },
+    "2": {
+      "male": true,
+      "female": false
+    },
+    "3": {
+      "male": true,
+      "female": false
+    },
+    "4": {
+      "male": true,
+      "female": false
+    },
+    "5": {
+      "male": true,
+      "female": false
+    },
+    "6": {
+      "male": true,
+      "female": false
+    },
+    "7": {
+      "male": true,
+      "female": false
+    },
+    "8": {
+      "male": true,
+      "female": false
+    },
+    "9": {
+      "male": true,
+      "female": false
+    },
+    "10": {
+      "male": true,
+      "female": false
+    }
+  },
+  "eyes": {
+    "0": {
+      "male": true,
+      "female": true
+    },
+    "1": {
+      "male": true,
+      "female": false
+    },
+    "2": {
+      "male": true,
+      "female": false
+    },
+    "3": {
+      "male": true,
+      "female": false
+    },
+    "4": {
+      "male": true,
+      "female": true
+    },
+    "5": {
+      "male": false,
+      "female": true
+    },
+    "6": {
+      "male": false,
+      "female": true
+    }
+  },
+  "noses": {
+    "0": {
+      "male": true,
+      "female": true
+    },
+    "1": {
+      "male": true,
+      "female": false
+    },
+    "2": {
+      "male": true,
+      "female": true
+    },
+    "3": {
+      "male": false,
+      "female": true
+    },
+    "4": {
+      "male": true,
+      "female": true
+    }
+  },
+  "eye_brows": {
+    "0": {
+      "male": true,
+      "female": false
+    },
+    "1": {
+      "male": true,
+      "female": false
+    },
+    "2": {
+      "male": true,
+      "female": true
+    },
+    "3": {
+      "male": true,
+      "female": true
+    },
+    "4": {
+      "male": true,
+      "female": true
+    },
+    "5": {
+      "male": true,
+      "female": true
+    },
+    "6": {
+      "male": false,
+      "female": true
+    },
+    "7": {
+      "male": false,
+      "female": true
+    }
+  },
+  "glasses": {
+    "0": {
+      "male": true,
+      "female": true
+    },
+    "1": {
+      "male": true,
+      "female": true
+    },
+    "2": {
+      "male": true,
+      "female": true
+    },
+    "3": {
+      "male": true,
+      "female": true
+    },
+    "4": {
+      "male": true,
+      "female": true
+    }
+  },
+  "hair_top": {
+    "0": {
+      "male": true,
+      "female": false
+    },
+    "1": {
+      "male": true,
+      "female": false
+    },
+    "2": {
+      "male": true,
+      "female": false
+    },
+    "3": {
+      "male": true,
+      "female": true
+    },
+    "4": {
+      "male": false,
+      "female": true
+    },
+    "5": {
+      "male": true,
+      "female": true
+    },
+    "6": {
+      "male": true,
+      "female": false
+    },
+    "7": {
+      "male": false,
+      "female": true
+    },
+    "8": {
+      "male": false,
+      "female": true
+    },
+    "9": {
+      "male": true,
+      "female": true
+    },
+    "10": {
+      "male": true,
+      "female": false
+    },
+    "11": {
+      "male": true,
+      "female": false
+    },
+    "12": {
+      "male": false,
+      "female": true
+    },
+    "13": {
+      "male": false,
+      "female": true
+    }
+  }
+}

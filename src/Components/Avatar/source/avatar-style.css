@@ -1,0 +1,120 @@
+.skin-style {
+  fill: #f0beb4;
+}
+.cls-1,
+.contur_2px,
+.contur_15px,
+.contur_1px,
+.contur_05px {
+  fill: none;
+}
+
+.hair-style {
+  fill: #8c6239;
+}
+
+.hair-shadow,
+.skin-accent {
+  opacity: 0.15;
+}
+
+.contur_2px,
+.contur_15px,
+.contur_1px,
+.contur_05px {
+  stroke: #0a1e28;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contur_05px {
+  stroke-width: 0.5px;
+}
+
+.contur_15px {
+  stroke-width: 1.5px;
+}
+
+.contur_2px {
+  stroke-width: 2px;
+}
+
+.hair-detail {
+  fill: #c1272d;
+}
+
+.skin-gradient {
+  opacity: 0.35;
+  fill: url(#Gradient_bez_nazwy_15);
+}
+
+.shadow-style {
+  opacity: 0.2;
+}
+
+.clothes-style {
+  fill: #c7b299;
+}
+
+.hair-light,
+.light-light-glow,
+.light-glow,
+.shirt-white,
+.teeth-style,
+.skin-accent {
+  fill: #fff;
+}
+
+.clothes-detail,
+.lipstick-style {
+  fill: red;
+}
+
+.hair-light,
+.light-light-glow,
+.skin-shadow {
+  opacity: 0.1;
+}
+
+.primary-fill,
+.eye-style {
+  fill: #0a1e28;
+}
+
+[data-name="eyes"] {
+  transition: transform 1s;
+}
+
+.cls-5,
+.glasses-style {
+  opacity: 0.5;
+}
+
+.glasses-style {
+  fill: url(#Gradient_bez_nazwy_11);
+}
+
+.cls-4,
+.light-glow {
+  opacity: 0.3;
+}
+
+.dark-glasses-style {
+  fill: url(#Gradient_bez_nazwy_21);
+}
+
+.mouth-inner {
+  fill: #3f0a0f;
+}
+
+.mouth-tongue {
+  fill: #c1272d;
+}
+
+.avatar g {
+  transform-origin: 35% 45%;
+}
+
+/* .avatar g * {
+  stroke: none !important;
+} */
