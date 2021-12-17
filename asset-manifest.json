@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/avatarmaker/static/css/main.49301103.chunk.css",
+    "main.js": "/avatarmaker/static/js/main.c75039ba.chunk.js",
+    "main.js.map": "/avatarmaker/static/js/main.c75039ba.chunk.js.map",
+    "runtime-main.js": "/avatarmaker/static/js/runtime-main.67e3ce8c.js",
+    "runtime-main.js.map": "/avatarmaker/static/js/runtime-main.67e3ce8c.js.map",
+    "static/js/2.e98bc4f8.chunk.js": "/avatarmaker/static/js/2.e98bc4f8.chunk.js",
+    "static/js/2.e98bc4f8.chunk.js.map": "/avatarmaker/static/js/2.e98bc4f8.chunk.js.map",
+    "index.html": "/avatarmaker/index.html",
+    "precache-manifest.f311b5890234efb095e1e669f0a05ae6.js": "/avatarmaker/precache-manifest.f311b5890234efb095e1e669f0a05ae6.js",
+    "service-worker.js": "/avatarmaker/service-worker.js",
+    "static/css/main.49301103.chunk.css.map": "/avatarmaker/static/css/main.49301103.chunk.css.map",
+    "static/js/2.e98bc4f8.chunk.js.LICENSE": "/avatarmaker/static/js/2.e98bc4f8.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.67e3ce8c.js",
+    "static/js/2.e98bc4f8.chunk.js",
+    "static/css/main.49301103.chunk.css",
+    "static/js/main.c75039ba.chunk.js"
+  ]
+}
