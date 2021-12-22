@@ -8,7 +8,6 @@ import rootReducer from "./store/reducers";
 import throttle from "lodash/throttle";
 import { saveState } from "./utilis/localStorage";
 import App from "./App";
-import * as serviceWorker from "./serviceWorker";
 import "./index.css";
 
 const store = configureStore({
@@ -29,4 +28,3 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-serviceWorker.unregister();
