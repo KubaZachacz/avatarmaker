@@ -21,7 +21,7 @@
     "file-saver": "^2.0.2",
     "gh-pages": "^3.2.3",
     "glamor": "^2.20.40",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-app-polyfill": "^1.0.5",
